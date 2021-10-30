@@ -1,0 +1,30 @@
+{
+  "root": "apps/studio-ghibli-search-engine-web-e2e",
+  "sourceRoot": "apps/studio-ghibli-search-engine-web-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/studio-ghibli-search-engine-web-e2e/cypress.json",
+        "devServerTarget": "studio-ghibli-search-engine-web:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "studio-ghibli-search-engine-web:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/studio-ghibli-search-engine-web-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["studio-ghibli-search-engine-web"]
+}
