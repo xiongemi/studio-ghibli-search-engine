@@ -1,0 +1,23 @@
+{
+  "root": "libs/store",
+  "sourceRoot": "libs/store/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/store/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/store"],
+      "options": {
+        "jestConfig": "libs/store/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
