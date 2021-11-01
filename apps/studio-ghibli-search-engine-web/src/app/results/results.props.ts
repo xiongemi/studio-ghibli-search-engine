@@ -1,14 +1,15 @@
-import { AnyAction, Dispatch, ThunkDispatch } from '@reduxjs/toolkit';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import {
-  fetchSearch,
   filmsSelectors,
   RootState,
   searchActions,
+  searchSelectors,
+  searchSlice,
 } from '@studio-ghibli-search-engine/store';
 
 const mapStateToProps = (state: RootState) => {
   return {
-    films: filmsSelectors.selectAllFilms(state),
+    results: searchSelectors.getSearchResults(state),
   };
 };
 
@@ -25,7 +26,7 @@ const mapDispatchToProps = (
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-type SearchProps = mapStateToPropsType & mapDispatchToPropsType;
+type ResultsProps = mapStateToPropsType & mapDispatchToPropsType;
 
 export { mapStateToProps, mapDispatchToProps };
-export type { SearchProps };
+export type { ResultsProps };

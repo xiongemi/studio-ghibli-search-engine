@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { AppRoutes } from './app-routes.enum';
+import Results from './results/results';
 import Search from './search/search';
 
 export function App() {
@@ -19,6 +20,9 @@ export function App() {
           <Switch>
             <Route path={AppRoutes.search}>
               <Search />
+            </Route>
+            <Route path={AppRoutes.results}>
+              <Results />
             </Route>
             <Redirect from="/" to={AppRoutes.search} />
           </Switch>

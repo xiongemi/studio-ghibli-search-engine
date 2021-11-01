@@ -99,4 +99,4 @@ export const selectPeopleEntities = createSelector(
 
 export const shouldFetchPeople = createSelector(getPeopleState, (state): boolean => state.loadingStatus === 'not loaded' || state.loadingStatus === 'error');
 
-export const peopleSelectors = {shouldFetchPeople};
+export const peopleSelectors = {selectAllPeople, shouldFetchPeople};

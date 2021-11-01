@@ -1,9 +1,9 @@
-import { Grid } from '@mui/material';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-import FilmCard from './film-card/film-card';
-import SearchForm from './search-form/search-form';
+import { AppRoutes } from '../app-routes.enum';
+
+import SearchForm from '../shared/search-form/search-form';
 import {
   mapDispatchToProps,
   mapStateToProps,
@@ -11,20 +11,15 @@ import {
 } from './search.props';
 
 export function Search({ searchText, films }: SearchProps) {
-  useEffect(() => {
-    searchText();
-  }, [searchText]);
+  const history = useHistory();
 
+  const submitSearchForm = (text: string) => {
+    history.push(`${AppRoutes.results}?search=${text}`);
+    searchText(text);
+  }
   return (
     <>
-      <SearchForm></SearchForm>
-      <Grid container spacing={2}>
-        {films.map((film) => (
-          <Grid item xs={12} md={4}>
-            <FilmCard {...film} />
-          </Grid>
-        ))}
-      </Grid>
+      <SearchForm onSubmit={submitSearchForm}></SearchForm>
     </>
   );
 }

@@ -16,4 +16,5 @@ export interface FilmEntity {
   url: string;
   image: string;
   movieBanner: string;
+  similarity?: number;
 }

@@ -3,14 +3,19 @@ import { InputAdornment, Button, Stack } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
 import { TextField } from 'formik-mui';
 
-/* eslint-disable-next-line */
-export interface SearchFormProps {}
+export interface SearchFormProps {
+  searchText?: string;
+  onSubmit: (searchText: string) => void;
+}
 
-export function SearchForm(props: SearchFormProps) {
+export function SearchForm({ searchText, onSubmit }: SearchFormProps) {
   return (
     <Formik
-      initialValues={{ search: '' }}
-      onSubmit={(value: any) => console.log(value)}
+      initialValues={{ search: searchText || '' }}
+      onSubmit={(value, actions) => {
+        onSubmit(value.search);
+        actions.setSubmitting(false);
+      }}
     >
       <Form>
         <Field
@@ -29,7 +34,9 @@ export function SearchForm(props: SearchFormProps) {
           fullWidth
         />
         <Stack direction="row" spacing={2} justifyContent="center">
-          <Button type="submit" variant="outlined">Search</Button>
+          <Button type="submit" variant="outlined">
+            Search
+          </Button>
         </Stack>
       </Form>
     </Formik>

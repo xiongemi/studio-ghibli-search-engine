@@ -8,4 +8,5 @@ export interface PeopleEntity {
   films: string[];
   species: string;
   url: string;
+  similarity?: number;
 }

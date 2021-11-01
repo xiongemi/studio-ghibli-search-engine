@@ -46,8 +46,7 @@ export const initialFilmsState: FilmsState = filmsAdapter.getInitialState({
 export const filmsSlice = createSlice({
   name: FILMS_FEATURE_KEY,
   initialState: initialFilmsState,
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchFilms.pending, (state: FilmsState) => {
@@ -74,8 +73,7 @@ export const filmsReducer = filmsSlice.reducer;
 
 export const filmsActions = { fetchFilms, ...filmsSlice.actions };
 
-
-const { selectAll, selectEntities } = filmsAdapter.getSelectors();
+const { selectAll, selectEntities, selectById } = filmsAdapter.getSelectors();
 
 export const getFilmsState = (rootState: RootState): FilmsState =>
   rootState[FILMS_FEATURE_KEY];
@@ -87,6 +85,21 @@ export const selectFilmsEntities = createSelector(
   selectEntities
 );
 
-export const shouldFetchFilms = createSelector(getFilmsState, (state): boolean => state.loadingStatus === 'not loaded' || state.loadingStatus === 'error');
+export const selectFilmById = (id: string) =>
+  createSelector(getFilmsState, (filmState: FilmsState) => {
+    return selectById(filmState, id);
+  });
 
-export const filmsSelectors = {selectAllFilms, shouldFetchFilms};
+export const selectFilmTitleById = (id: string) =>
+  createSelector(
+    selectFilmById(id),
+    (filmEntity: FilmEntity | undefined): string | undefined => filmEntity?.title
+  );
+
+export const shouldFetchFilms = createSelector(
+  getFilmsState,
+  (state): boolean =>
+    state.loadingStatus === 'not loaded' || state.loadingStatus === 'error'
+);
+
+export const filmsSelectors = { selectAllFilms, shouldFetchFilms, selectFilmTitleById };
