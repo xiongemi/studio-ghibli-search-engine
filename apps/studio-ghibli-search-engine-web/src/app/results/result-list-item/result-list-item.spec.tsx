@@ -15,7 +15,7 @@ describe('ResultListItem', () => {
   let store: MockStoreEnhanced;
 
   beforeEach(() => {
-    store = mockStore(initialRootState);
+    store = mockStore(initialRootState as any);
     store.dispatch = jest.fn();
   });
 
