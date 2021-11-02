@@ -1,15 +1,13 @@
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 import {
+  filmsActions,
+  filmsSelectors,
   RootState,
-  searchActions,
-  searchSelectors,
 } from '@studio-ghibli-search-engine/store';
 
 const mapStateToProps = (state: RootState) => {
   return {
-    results: searchSelectors.getSearchResults(state),
-    textToSearchInState: searchSelectors.getSearchText(state),
-    isSearchLoading: searchSelectors.isSearchLoading(state)
+    getFilm: (id: string) => filmsSelectors.selectFilmById(id)(state),
   };
 };
 
@@ -17,8 +15,8 @@ const mapDispatchToProps = (
   dispatch: ThunkDispatch<RootState, void, AnyAction>
 ) => {
   return {
-    searchText(text: string) {
-      dispatch(searchActions.fetchSearch(text));
+    fetchFilms() {
+      dispatch(filmsActions.fetchFilms());
     },
   };
 };
@@ -26,7 +24,7 @@ const mapDispatchToProps = (
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-type ResultsProps = mapStateToPropsType & mapDispatchToPropsType;
+type FilmProps = mapStateToPropsType & mapDispatchToPropsType;
 
 export { mapStateToProps, mapDispatchToProps };
-export type { ResultsProps };
+export type { FilmProps };

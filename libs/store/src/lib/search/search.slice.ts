@@ -8,11 +8,7 @@ import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
 import stringSimilarity from 'string-similarity';
 
 import { filmsActions, filmsSelectors } from '../films/films.slice';
-import {
-  getPeopleState,
-  peopleActions,
-  peopleSelectors,
-} from '../people/people.slice';
+import { peopleActions, peopleSelectors } from '../people/people.slice';
 import { RootState } from '../root/root-state.interface';
 
 export const SEARCH_FEATURE_KEY = 'search';
@@ -27,15 +23,9 @@ export const fetchSearch = createAsyncThunk<
   string,
   string,
   { state: RootState }
->('search/fetchStatus', async (searchText: string, { getState, dispatch }) => {
-  const rootState = getState();
-  // fetch all films and people to store
-  if (filmsSelectors.shouldFetchFilms(rootState)) {
-    await dispatch(filmsActions.fetchFilms());
-  }
-  if (peopleSelectors.shouldFetchPeople(rootState)) {
-    await dispatch(peopleActions.fetchPeople());
-  }
+>('search/fetchStatus', async (searchText: string, { dispatch }) => {
+  await dispatch(filmsActions.fetchFilms());
+  await dispatch(peopleActions.fetchPeople());
 
   return searchText;
 });
@@ -77,9 +67,19 @@ export const searchActions = { fetchSearch, ...searchSlice.actions };
 export const getSearchState = (rootState: RootState): SearchState =>
   rootState[SEARCH_FEATURE_KEY];
 
+export const getSearchLoadingStatus = createSelector(
+  getSearchState,
+  (searchState: SearchState) => searchState.loadingStatus
+);
+
 export const getSearchText = createSelector(
   getSearchState,
   (searchState: SearchState): string | undefined => searchState.searchText
+);
+
+export const isSearchLoading = createSelector(
+  getSearchLoadingStatus,
+  (loadingStatus) => loadingStatus === 'loading'
 );
 
 export const getSearchResults = createSelector(
@@ -94,16 +94,23 @@ export const getSearchResults = createSelector(
     if (!searchText) {
       return [];
     }
-    const peopleResults = peopleEntities.map((people) => {
-      return {
-        ...people,
-        similarity: stringSimilarity.compareTwoStrings(people.name, searchText),
-      };
-    }).filter((people) => people.similarity > 0.3);
+    const peopleResults = peopleEntities
+      .map((people) => {
+        return {
+          ...people,
+          similarity: stringSimilarity.compareTwoStrings(
+            people.name,
+            searchText
+          ),
+        };
+      })
+      .filter((people) => people.similarity > 0.3);
     const filmResults = filmEntities
       .map((film) => ({
         ...film,
-        similarity: film.title.toLowerCase().includes(searchText.toLowerCase()) ? 1 : stringSimilarity.compareTwoStrings(film.title, searchText),
+        similarity: film.title.toLowerCase().includes(searchText.toLowerCase())
+          ? 0.8
+          : stringSimilarity.compareTwoStrings(film.title, searchText),
       }))
       .filter((film) => film.similarity > 0.3);
     return [...peopleResults, ...filmResults].sort(
@@ -112,4 +119,4 @@ export const getSearchResults = createSelector(
   }
 );
 
-export const searchSelectors = { getSearchResults };
+export const searchSelectors = { getSearchText, getSearchResults, isSearchLoading };

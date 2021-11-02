@@ -1,6 +1,10 @@
+import { List, Divider, Alert } from '@mui/material';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { List, Divider } from '@mui/material';
+import { useHistory, useLocation } from 'react-router';
 
+import { AppRoutes } from '../app-routes.enum';
+import Loading from '../shared/loading/loading';
 import SearchForm from '../shared/search-form/search-form';
 
 import ResultListItem from './result-list-item/result-list-item';
@@ -10,18 +14,50 @@ import {
   ResultsProps,
 } from './results.props';
 
-export function Results({ searchText, results }: ResultsProps) {
-  return (
+export function Results({
+  searchText,
+  textToSearchInState,
+  results,
+  isSearchLoading,
+}: ResultsProps) {
+  const history = useHistory();
+
+  const params = new URLSearchParams(useLocation().search);
+  const searchParam = params.get('search');
+
+  useEffect(() => {
+    if (searchParam) {
+      searchText(searchParam);
+    }
+  }, [searchText, searchParam,]);
+
+  const submitSearchForm = (text: string) => {
+    history.push(`${AppRoutes.results}?search=${text}`);
+  };
+
+  return isSearchLoading ? (
+    <Loading />
+  ) : (
     <>
-      <SearchForm onSubmit={searchText}></SearchForm>
-      <List>
-        {results.map((result) => (
-        <ListItemButton>
-          <ResultListItem {...result} />
-          <Divider variant="inset" component="li" />
-          </>
-        ))}
-      </List>
+      <SearchForm
+        onSubmit={submitSearchForm}
+        searchText={searchParam || ''}
+        stackDirection="row"
+      ></SearchForm>
+      {results && results.length ? (
+        <List>
+          {results.map((result) => (
+            <>
+              <ResultListItem {...result} />
+              <Divider variant="inset" component="li" />
+            </>
+          ))}
+        </List>
+      ) : (
+        <Alert variant="outlined" severity="info">
+          Nothing found!
+        </Alert>
+      )}
     </>
   );
 }

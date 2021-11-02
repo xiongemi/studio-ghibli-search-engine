@@ -12,7 +12,8 @@ import {
   responseRemap,
   searchService,
 } from '@studio-ghibli-search-engine/services';
-import { RootState } from '@studio-ghibli-search-engine/store';
+
+import { RootState } from '../root/root-state.interface';
 
 export const PEOPLE_FEATURE_KEY = 'people';
 
@@ -23,19 +24,25 @@ export interface PeopleState extends EntityState<PeopleEntity> {
 
 export const peopleAdapter = createEntityAdapter<PeopleEntity>();
 
-export const fetchPeople = createAsyncThunk<PeopleEntity[]>(
-  'people/fetchStatus',
-  async (_, { rejectWithValue }) => {
-    try {
-      const peopleResponse: PeopleResponse[] = await searchService.getPeople();
-      return peopleResponse.map((response) =>
-        responseRemap<PeopleEntity>(response)
-      );
-    } catch (error) {
-      return rejectWithValue({ error });
+export const fetchPeople = createAsyncThunk<
+  PeopleEntity[],
+  void,
+  { state: RootState }
+>('people/fetchStatus', async (_, { rejectWithValue, getState }) => {
+  try {
+    const rootState: RootState = getState();
+    const people = selectAllPeople(rootState);
+    if (people && people.length) {
+      return selectAllPeople(rootState);
     }
+    const peopleResponse: PeopleResponse[] = await searchService.getPeople();
+    return peopleResponse.map((response) =>
+      responseRemap<PeopleEntity>(response)
+    );
+  } catch (error) {
+    return rejectWithValue({ error });
   }
-);
+});
 
 export const initialPeopleState: PeopleState = peopleAdapter.getInitialState({
   loadingStatus: 'not loaded',
@@ -97,6 +104,10 @@ export const selectPeopleEntities = createSelector(
   selectEntities
 );
 
-export const shouldFetchPeople = createSelector(getPeopleState, (state): boolean => state.loadingStatus === 'not loaded' || state.loadingStatus === 'error');
+export const shouldFetchPeople = createSelector(
+  getPeopleState,
+  (state): boolean =>
+    state.loadingStatus === 'not loaded' || state.loadingStatus === 'error'
+);
 
-export const peopleSelectors = {selectAllPeople, shouldFetchPeople};
+export const peopleSelectors = { selectAllPeople, shouldFetchPeople };

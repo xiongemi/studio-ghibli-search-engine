@@ -24,19 +24,23 @@ export interface FilmsState extends EntityState<FilmEntity> {
 
 export const filmsAdapter = createEntityAdapter<FilmEntity>();
 
-export const fetchFilms = createAsyncThunk<FilmEntity[]>(
-  'films/fetchStatus',
-  async (_, { rejectWithValue }) => {
-    try {
-      const filmsResponse: FilmResponse[] = await searchService.getFilms();
-      return filmsResponse.map((response) =>
-        responseRemap<FilmEntity>(response)
-      );
-    } catch (error) {
-      return rejectWithValue({ error });
+export const fetchFilms = createAsyncThunk<
+  FilmEntity[],
+  void,
+  { state: RootState }
+>('films/fetchStatus', async (_, { rejectWithValue, getState }) => {
+  try {
+    const rootState: RootState = getState();
+    const films = selectAllFilms(rootState);
+    if (films && films.length) {
+      return films;
     }
+    const filmsResponse: FilmResponse[] = await searchService.getFilms();
+    return filmsResponse.map((response) => responseRemap<FilmEntity>(response));
+  } catch (error) {
+    return rejectWithValue({ error });
   }
-);
+});
 
 export const initialFilmsState: FilmsState = filmsAdapter.getInitialState({
   loadingStatus: 'not loaded',
@@ -86,14 +90,18 @@ export const selectFilmsEntities = createSelector(
 );
 
 export const selectFilmById = (id: string) =>
-  createSelector(getFilmsState, (filmState: FilmsState) => {
-    return selectById(filmState, id);
-  });
+  createSelector(
+    getFilmsState,
+    (filmState: FilmsState): FilmEntity | undefined => {
+      return selectById(filmState, id) || undefined;
+    }
+  );
 
 export const selectFilmTitleById = (id: string) =>
   createSelector(
     selectFilmById(id),
-    (filmEntity: FilmEntity | undefined): string | undefined => filmEntity?.title
+    (filmEntity: FilmEntity | undefined): string | undefined =>
+      filmEntity?.title
   );
 
 export const shouldFetchFilms = createSelector(
@@ -102,4 +110,9 @@ export const shouldFetchFilms = createSelector(
     state.loadingStatus === 'not loaded' || state.loadingStatus === 'error'
 );
 
-export const filmsSelectors = { selectAllFilms, shouldFetchFilms, selectFilmTitleById };
+export const filmsSelectors = {
+  selectAllFilms,
+  shouldFetchFilms,
+  selectFilmById,
+  selectFilmTitleById,
+};

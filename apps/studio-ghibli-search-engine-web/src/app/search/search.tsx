@@ -1,27 +1,27 @@
-import { connect } from 'react-redux';
+import { Grid, Box } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 
+import Logo from '../../assets/logo.svg';
 import { AppRoutes } from '../app-routes.enum';
-
 import SearchForm from '../shared/search-form/search-form';
-import {
-  mapDispatchToProps,
-  mapStateToProps,
-  SearchProps,
-} from './search.props';
 
-export function Search({ searchText, films }: SearchProps) {
+export function Search() {
   const history = useHistory();
 
   const submitSearchForm = (text: string) => {
     history.push(`${AppRoutes.results}?search=${text}`);
-    searchText(text);
-  }
+  };
   return (
-    <>
-      <SearchForm onSubmit={submitSearchForm}></SearchForm>
-    </>
+    <Grid container>
+      <Grid item md={2}></Grid>
+      <Grid item xs={12} md={8}>
+        <Box sx={{ textAlign: 'center' }}>
+          <img src={Logo} alt="Studio Ghibli Logo" style={{maxWidth: '100%'}}/>
+          <SearchForm onSubmit={submitSearchForm}></SearchForm>
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default Search;

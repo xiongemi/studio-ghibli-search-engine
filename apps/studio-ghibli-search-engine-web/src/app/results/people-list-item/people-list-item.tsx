@@ -1,17 +1,20 @@
 import Avatar from '@mui/material/Avatar';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { connect } from 'react-redux';
 
 import { mapStateToProps, PeopleListItemProps } from './people-list-item.props';
 
-export function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
+function PeopleListItem({
+  people,
+  getFilmTitle
+}: PeopleListItemProps) {
   const films =
-    people.films.map((film) => {
+    people.films?.map((film) => {
       const id = film.split('/').pop() as string;
-      return getFilmTitle(id);
-    }) || [];
+      return getFilmTitle(id) || '';
+    });
 
   return (
     <ListItemButton alignItems="flex-start">

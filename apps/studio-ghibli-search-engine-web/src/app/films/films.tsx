@@ -1,6 +1,7 @@
 
 import { Grid } from '@mui/material';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
+
 import FilmCard from './film-card/film-card';
 
 export function Films(films: FilmEntity[]) {

@@ -1,4 +1,7 @@
 export enum AppRoutes {
   search = '/search',
-  results = '/results'
+  results = '/results',
+  films = '/films',
+  film = '/film',
+  people = '/people'
 }

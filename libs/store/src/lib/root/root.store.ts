@@ -13,6 +13,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['search', 'films', 'people'],
   transforms: [transformEntityStateToPersist],
 };
 
