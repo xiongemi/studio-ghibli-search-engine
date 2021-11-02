@@ -9,7 +9,11 @@ export interface SearchFormProps {
   stackDirection?: 'row' | 'column';
 }
 
-export function SearchForm({ searchText, onSubmit, stackDirection='column' }: SearchFormProps) {
+export function SearchForm({
+  searchText,
+  onSubmit,
+  stackDirection = 'column',
+}: SearchFormProps) {
   return (
     <Formik
       enableReinitialize={true}
@@ -22,6 +26,7 @@ export function SearchForm({ searchText, onSubmit, stackDirection='column' }: Se
       <Form>
         <Stack direction={stackDirection} spacing={2}>
           <Field
+            id="search-text"
             component={TextField}
             label="Search"
             name="search"
@@ -36,7 +41,12 @@ export function SearchForm({ searchText, onSubmit, stackDirection='column' }: Se
             }}
             fullWidth
           />
-          <Stack direction="row" spacing={2} justifyContent="center" alignItems="center">
+          <Stack
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
             <Button type="submit" variant="outlined">
               Search
             </Button>

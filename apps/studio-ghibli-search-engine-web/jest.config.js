@@ -7,4 +7,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/studio-ghibli-search-engine-web',
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };
