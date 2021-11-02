@@ -12,20 +12,10 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-const mapDispatchToProps = (
-  dispatch: ThunkDispatch<RootState, void, AnyAction>
-) => {
-  return {
-    searchText(text: string) {
-      dispatch(searchActions.fetchSearch(text));
-    },
-  };
-};
-
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
-type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-type SearchProps = mapStateToPropsType & mapDispatchToPropsType;
 
-export { mapStateToProps, mapDispatchToProps };
-export type { SearchProps };
+type FilmsProps = mapStateToPropsType;
+
+export { mapStateToProps };
+export type { FilmsProps };

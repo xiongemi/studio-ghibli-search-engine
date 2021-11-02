@@ -6,9 +6,9 @@ export interface FilmEntity {
   description: string;
   director: string;
   producer: string;
-  releaseDate: number;
-  runningTime: number;
-  rtScore: number;
+  releaseDate: string;
+  runningTime: string;
+  rtScore: string;
   people: string[];
   species: string[];
   locations: string[];

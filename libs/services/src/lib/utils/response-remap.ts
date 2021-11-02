@@ -1,5 +1,6 @@
 import { Dictionary } from '@reduxjs/toolkit';
-import { mapKeys, camelCase } from 'lodash-es';
+import camelCase from 'lodash/camelCase';
+import mapKeys from 'lodash/mapKeys';
 
 /**
  * This function remaps response object's keys to all camel case

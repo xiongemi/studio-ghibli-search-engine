@@ -1,7 +1,7 @@
 import { List, Divider, Alert } from '@mui/material';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import { AppRoutes } from '../app-routes.enum';
 import Loading from '../shared/loading/loading';
@@ -16,7 +16,6 @@ import {
 
 export function Results({
   searchText,
-  textToSearchInState,
   results,
   isSearchLoading,
 }: ResultsProps) {
@@ -48,7 +47,7 @@ export function Results({
         <List>
           {results.map((result) => (
             <>
-              <ResultListItem {...result} />
+              <ResultListItem {...result} key={result.id}/>
               <Divider variant="inset" component="li" />
             </>
           ))}
