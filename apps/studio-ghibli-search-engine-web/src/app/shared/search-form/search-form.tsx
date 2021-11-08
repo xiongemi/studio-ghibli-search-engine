@@ -47,7 +47,11 @@ export function SearchForm({
             justifyContent="center"
             alignItems="center"
           >
-            <Button type="submit" variant="outlined">
+            <Button
+              type="submit"
+              variant="outlined"
+              data-testid="search-submit-button"
+            >
               Search
             </Button>
           </Stack>

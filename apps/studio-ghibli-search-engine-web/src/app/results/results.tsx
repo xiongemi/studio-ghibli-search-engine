@@ -47,8 +47,8 @@ export function Results({
         <List>
           {results.map((result) => (
             <>
-              <ResultListItem {...result} key={result.id}/>
-              <Divider variant="inset" component="li" />
+              <ResultListItem listItem={result} key={result.id}/>
+              <Divider variant="inset" component="li" key={result.id}/>
             </>
           ))}
         </List>

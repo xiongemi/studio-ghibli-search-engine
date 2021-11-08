@@ -1,1 +1,3 @@
-export const getGreeting = () => cy.get('h1');
+export const getSearchInput = () => cy.get('#search-text');
+export const getSearchSubmitButton = () =>
+  cy.get('[data-testid="search-submit-button"]');

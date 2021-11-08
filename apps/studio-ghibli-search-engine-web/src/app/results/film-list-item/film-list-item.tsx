@@ -8,17 +8,23 @@ import { Link, LinkProps } from 'react-router-dom';
 
 import { AppRoutes } from '../../app-routes.enum';
 
-export function FilmListItem(listItem: FilmEntity) {
-  const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>((props, ref) => (
-    <Link to={`${AppRoutes.film}/${listItem.id}`} {...props} ref={ref} />
-  ));
+export interface FilmListItemProps {
+  film: FilmEntity;
+}
+
+export function FilmListItem({ film }: FilmListItemProps) {
+  const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>(
+    (props, ref) => (
+      <Link to={`${AppRoutes.film}/${film.id}`} {...props} ref={ref} />
+    )
+  );
 
   return (
     <ListItemButton component={MyButton} alignItems="flex-start">
       <ListItemAvatar>
-        <Avatar alt={listItem.title} src={listItem.image} />
+        <Avatar alt={film.title} src={film.image} />
       </ListItemAvatar>
-      <ListItemText primary={listItem.title} secondary={listItem.description} />
+      <ListItemText primary={film.title} secondary={film.description} />
     </ListItemButton>
   );
 }
