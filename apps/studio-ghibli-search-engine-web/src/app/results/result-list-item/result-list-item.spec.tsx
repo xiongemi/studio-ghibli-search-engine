@@ -22,7 +22,7 @@ describe('ResultListItem', () => {
   it('should render successfully', () => {
     const { baseElement } = render(
       <Provider store={store}>
-        <ResultListItem {...mockPeopleEntity} />
+        <ResultListItem listItem={mockPeopleEntity} />
       </Provider>
     );
     expect(baseElement).toBeTruthy();

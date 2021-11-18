@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('FilmListItem', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FilmListItem {...mockFilmEntity} />);
+    const { baseElement } = render(<FilmListItem film={mockFilmEntity} />);
     expect(baseElement).toBeTruthy();
   });
 });
