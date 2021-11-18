@@ -14,14 +14,7 @@ export function ResultListItem({ listItem }: ResultListItemProps) {
   }
 
   const peopleListItem = listItem as PeopleEntity;
-  return (
-    <PeopleListItem
-      people={peopleListItem}
-      getFilmTitle={() => {
-        return '';
-      }}
-    />
-  );
+  return <PeopleListItem people={peopleListItem} />;
 }
 
 export default ResultListItem;

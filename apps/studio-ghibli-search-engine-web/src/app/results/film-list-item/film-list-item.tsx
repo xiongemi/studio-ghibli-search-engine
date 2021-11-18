@@ -5,6 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
+import truncate from 'truncate';
 
 import { AppRoutes } from '../../app-routes.enum';
 
@@ -24,7 +25,10 @@ export function FilmListItem({ film }: FilmListItemProps) {
       <ListItemAvatar>
         <Avatar alt={film.title} src={film.image} />
       </ListItemAvatar>
-      <ListItemText primary={film.title} secondary={film.description} />
+      <ListItemText
+        primary={film.title}
+        secondary={truncate(film.description, 200)}
+      />
     </ListItemButton>
   );
 }

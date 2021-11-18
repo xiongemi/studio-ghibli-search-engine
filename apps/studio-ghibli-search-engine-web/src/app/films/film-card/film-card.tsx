@@ -5,10 +5,24 @@ import {
   Typography,
   CardActions,
   Button,
+  Link,
 } from '@mui/material';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
+import React from 'react';
+import { Link as RouterLink, LinkProps } from 'react-router-dom';
+import truncate from 'truncate';
+
+import { AppRoutes } from '../../app-routes.enum';
 
 export function FilmCard(film: FilmEntity) {
+  const streamingUrl = process.env.NX_STREAMING_URL;
+
+  const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>(
+    (props, ref) => (
+      <RouterLink to={`${AppRoutes.film}/${film.id}`} {...props} ref={ref} />
+    )
+  );
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -22,12 +36,18 @@ export function FilmCard(film: FilmEntity) {
           {film.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            {film.description}
+          {truncate(film.description, 200)}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button
+          component="a"
+          href={streamingUrl}
+          target="_blank"
+        >
+          WATCH
+        </Button>
+        <Button component={MyButton} size="small">Learn More</Button>
       </CardActions>
     </Card>
   );

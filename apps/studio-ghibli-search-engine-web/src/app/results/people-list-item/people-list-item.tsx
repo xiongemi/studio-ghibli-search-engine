@@ -6,15 +6,11 @@ import { connect } from 'react-redux';
 
 import { mapStateToProps, PeopleListItemProps } from './people-list-item.props';
 
-function PeopleListItem({
-  people,
-  getFilmTitle
-}: PeopleListItemProps) {
-  const films =
-    people.films?.map((film) => {
-      const id = film.split('/').pop() as string;
-      return getFilmTitle(id) || '';
-    });
+function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
+  const films = people.films?.map((film) => {
+    const id = film.split('/').pop() as string;
+    return getFilmTitle(id) || '';
+  });
 
   return (
     <ListItemButton alignItems="flex-start">
@@ -26,4 +22,4 @@ function PeopleListItem({
   );
 }
 
-export default connect(mapStateToProps, null)(PeopleListItem);
+export default connect(mapStateToProps)(PeopleListItem);
