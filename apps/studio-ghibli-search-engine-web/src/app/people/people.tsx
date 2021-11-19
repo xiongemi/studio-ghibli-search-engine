@@ -1,14 +1,93 @@
-import './people.module.css';
+import { Box, Divider, Grid, Typography } from '@mui/material';
+import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-/* eslint-disable-next-line */
-export interface PeopleProps {}
+import FilmCard from '../shared/film-card/film-card';
+import Loading from '../shared/loading/loading';
 
-export function People(props: PeopleProps) {
-  return (
-    <div>
-      <h1>Welcome to People!</h1>
-    </div>
+import {
+  mapDispatchToProps,
+  mapStateToProps,
+  PeopleProps,
+} from './people.props';
+
+export function People({
+  loadingStatus,
+  getPerson,
+  getFilmById,
+  fetchPeople,
+}: PeopleProps) {
+  const { id } = useParams<{ id: string }>();
+  const [person, setPerson] = useState<PeopleEntity>();
+  const [films, setFilms] = useState<FilmEntity[]>();
+
+  useEffect(() => {
+    fetchPeople();
+  }, [fetchPeople]);
+
+  useEffect(() => {
+    setPerson(getPerson(id));
+  }, [id, getPerson, loadingStatus]);
+
+  useEffect(() => {
+    if (!person) return;
+    const filmsUnderPerson: FilmEntity[] = [];
+    person.films.forEach((filmUrl) => {
+      const filmId = filmUrl.split('/').pop();
+      if (!filmId) {
+        return;
+      }
+      const filmUnderPerson: FilmEntity | undefined = getFilmById(filmId);
+      if (filmUnderPerson !== undefined) {
+        filmsUnderPerson.push(filmUnderPerson);
+      }
+    });
+    setFilms(filmsUnderPerson);
+  }, [person, getFilmById]);
+
+  return person ? (
+    <>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          {films && films?.length && (
+            <img
+              src={films[0].movieBanner}
+              alt={films[0].title}
+              style={{ maxWidth: '100%' }}
+            />
+          )}
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="h5" component="h1">
+            {person?.name}
+          </Typography>
+          <Typography variant="body1">
+            Age: {person?.age || 'Unknown'}
+          </Typography>
+          <Typography variant="body1">
+            Gender: {person?.gender || 'Unknown'}
+          </Typography>
+          <Typography variant="body1">
+            Hair Color: {person?.hairColor || 'Unknown'}
+          </Typography>
+        </Grid>
+      </Grid>
+      {films && (
+        <>
+          <Divider sx={{ my: 3 }}>Films</Divider>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            {films?.map((film) => (
+              <FilmCard key={film.id} {...film} />
+            ))}
+          </Box>
+        </>
+      )}
+    </>
+  ) : (
+    <Loading />
   );
 }
 
-export default People;
+export default connect(mapStateToProps, mapDispatchToProps)(People);

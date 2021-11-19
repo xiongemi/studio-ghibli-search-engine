@@ -40,14 +40,12 @@ export function FilmCard(film: FilmEntity) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
-          component="a"
-          href={streamingUrl}
-          target="_blank"
-        >
+        <Button component="a" href={streamingUrl} target="_blank">
           WATCH
         </Button>
-        <Button component={MyButton} size="small">Learn More</Button>
+        <Button component={MyButton} size="small">
+          Learn More
+        </Button>
       </CardActions>
     </Card>
   );

@@ -28,7 +28,7 @@ export function Results({
     if (searchParam) {
       searchText(searchParam);
     }
-  }, [searchText, searchParam,]);
+  }, [searchText, searchParam]);
 
   const submitSearchForm = (text: string) => {
     history.push(`${AppRoutes.results}?search=${text}`);
@@ -43,13 +43,13 @@ export function Results({
         searchText={searchParam || ''}
         stackDirection="row"
       ></SearchForm>
-      {results && results.length ? (
+      {results && results.length && searchParam ? (
         <List>
           {results.map((result) => (
-            <>
-              <ResultListItem listItem={result} key={result.id}/>
-              <Divider variant="inset" component="li" key={result.id}/>
-            </>
+            <div key={result.id}>
+              <ResultListItem listItem={result} />
+              <Divider variant="inset" component="li" />
+            </div>
           ))}
         </List>
       ) : (

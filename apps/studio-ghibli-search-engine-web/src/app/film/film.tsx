@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -8,9 +8,14 @@ import Loading from '../shared/loading/loading';
 
 import { FilmProps, mapDispatchToProps, mapStateToProps } from './film.props';
 
-export function Film({ getFilm }: FilmProps) {
+export function Film({ getFilm, fetchFilms }: FilmProps) {
+  const streamingUrl = process.env.NX_STREAMING_URL;
   const { id } = useParams<{ id: string }>();
   const [film, setFilm] = useState<FilmEntity>();
+
+  useEffect(() => {
+    fetchFilms();
+  }, [fetchFilms]);
 
   useEffect(() => {
     setFilm(getFilm(id));
@@ -37,9 +42,19 @@ export function Film({ getFilm }: FilmProps) {
         <Typography variant="body1">
           Rotten Tomatoes Score: {film.rtScore}
         </Typography>
+        <Button
+          variant="contained"
+          component="a"
+          href={streamingUrl}
+          target="_blank"
+        >
+          Watch
+        </Button>
       </Grid>
       <Grid item md={12}>
-        <Typography variant="h6" component="h2">Plot</Typography>
+        <Typography variant="h6" component="h2">
+          Plot
+        </Typography>
         <Typography variant="body1">{film.description}</Typography>
       </Grid>
     </Grid>

@@ -6,7 +6,10 @@ import {
   EntityState,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { PeopleEntity } from '@studio-ghibli-search-engine/models';
+import {
+  LoadingStatus,
+  PeopleEntity,
+} from '@studio-ghibli-search-engine/models';
 import {
   PeopleResponse,
   responseRemap,
@@ -18,7 +21,7 @@ import { RootState } from '../root/root-state.interface';
 export const PEOPLE_FEATURE_KEY = 'people';
 
 export interface PeopleState extends EntityState<PeopleEntity> {
-  loadingStatus: 'not loaded' | 'loading' | 'loaded' | 'error';
+  loadingStatus: LoadingStatus;
   error?: string;
 }
 
@@ -33,7 +36,7 @@ export const fetchPeople = createAsyncThunk<
     const rootState: RootState = getState();
     const people = selectAllPeople(rootState);
     if (people && people.length) {
-      return selectAllPeople(rootState);
+      return people;
     }
     const peopleResponse: PeopleResponse[] = await searchService.getPeople();
     return peopleResponse.map((response) =>
@@ -78,21 +81,7 @@ export const peopleReducer = peopleSlice.reducer;
 
 export const peopleActions = { fetchPeople, ...peopleSlice.actions };
 
-/*
- * Export selectors to query state. For use with the `useSelector` hook.
- *
- * e.g.
- * ```
- * import { useSelector } from 'react-redux';
- *
- * // ...
- *
- * const entities = useSelector(selectAllPeople);
- * ```
- *
- * See: https://react-redux.js.org/next/api/hooks#useselector
- */
-const { selectAll, selectEntities } = peopleAdapter.getSelectors();
+const { selectAll, selectEntities, selectById } = peopleAdapter.getSelectors();
 
 export const getPeopleState = (rootState: RootState): PeopleState =>
   rootState[PEOPLE_FEATURE_KEY];
@@ -104,10 +93,21 @@ export const selectPeopleEntities = createSelector(
   selectEntities
 );
 
-export const shouldFetchPeople = createSelector(
+export const selectPersonById = (id: string) =>
+  createSelector(
+    getPeopleState,
+    (peopleState: PeopleState): PeopleEntity | undefined => {
+      return selectById(peopleState, id) || undefined;
+    }
+  );
+
+export const getPeopleLoadingStatus = createSelector(
   getPeopleState,
-  (state): boolean =>
-    state.loadingStatus === 'not loaded' || state.loadingStatus === 'error'
+  (state): LoadingStatus => state.loadingStatus
 );
 
-export const peopleSelectors = { selectAllPeople, shouldFetchPeople };
+export const peopleSelectors = {
+  selectAllPeople,
+  selectPersonById,
+  getPeopleLoadingStatus
+};

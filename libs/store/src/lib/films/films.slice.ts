@@ -6,7 +6,7 @@ import {
   EntityState,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { FilmEntity } from '@studio-ghibli-search-engine/models';
+import { FilmEntity, LoadingStatus } from '@studio-ghibli-search-engine/models';
 import {
   FilmResponse,
   responseRemap,
@@ -18,7 +18,7 @@ import { RootState } from '../root/root-state.interface';
 export const FILMS_FEATURE_KEY = 'films';
 
 export interface FilmsState extends EntityState<FilmEntity> {
-  loadingStatus: 'not loaded' | 'loading' | 'loaded' | 'error';
+  loadingStatus: LoadingStatus;
   error?: string;
 }
 
@@ -104,15 +104,13 @@ export const selectFilmTitleById = (id: string) =>
       filmEntity?.title
   );
 
-export const shouldFetchFilms = createSelector(
+export const getFilmsLoadingStatus = createSelector(
   getFilmsState,
-  (state): boolean =>
-    state.loadingStatus === 'not loaded' || state.loadingStatus === 'error'
+  (state): LoadingStatus => state.loadingStatus
 );
 
 export const filmsSelectors = {
   selectAllFilms,
-  shouldFetchFilms,
   selectFilmById,
   selectFilmTitleById,
 };

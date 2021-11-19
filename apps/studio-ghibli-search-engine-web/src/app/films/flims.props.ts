@@ -1,4 +1,5 @@
-import { filmsSelectors, RootState } from '@studio-ghibli-search-engine/store';
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { filmsActions, filmsSelectors, RootState } from '@studio-ghibli-search-engine/store';
 
 const mapStateToProps = (state: RootState) => {
   return {
@@ -6,8 +7,20 @@ const mapStateToProps = (state: RootState) => {
   };
 };
 
-type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
-type FilmsProps = mapStateToPropsType;
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<RootState, void, AnyAction>
+) => {
+  return {
+    fetchFilms() {
+      dispatch(filmsActions.fetchFilms());
+    },
+  };
+};
 
-export { mapStateToProps };
+type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
+type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
+
+type FilmsProps = mapStateToPropsType & mapDispatchToPropsType;
+
+export { mapStateToProps, mapDispatchToProps };
 export type { FilmsProps };

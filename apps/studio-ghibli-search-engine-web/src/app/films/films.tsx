@@ -1,10 +1,16 @@
 import { Grid } from '@mui/material';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import FilmCard from './film-card/film-card';
-import { FilmsProps, mapStateToProps } from './flims.props';
+import FilmCard from '../shared/film-card/film-card';
 
-export function Films({ films }: FilmsProps) {
+import { FilmsProps, mapDispatchToProps, mapStateToProps } from './flims.props';
+
+export function Films({ films, fetchFilms }: FilmsProps) {
+  useEffect(() => {
+    fetchFilms();
+  }, [fetchFilms]);
+  
   return (
     <Grid container spacing={2}>
       {films.map((film) => (
@@ -16,4 +22,4 @@ export function Films({ films }: FilmsProps) {
   );
 }
 
-export default connect(mapStateToProps)(Films);
+export default connect(mapStateToProps, mapDispatchToProps)(Films);

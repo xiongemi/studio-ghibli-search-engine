@@ -10,6 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { AppRoutes } from './app-routes.enum';
 import Film from './film/film';
 import Films from './films/films';
+import People from './people/people';
 import Results from './results/results';
 import Search from './search/search';
 import Loading from './shared/loading/loading';
@@ -57,6 +58,9 @@ export function App() {
               </Route>
               <Route path={AppRoutes.film + '/:id'}>
                 <Film />
+              </Route>
+              <Route path={AppRoutes.people + '/:id'}>
+                <People />
               </Route>
               <Route path={AppRoutes.films}>
                 <Films />
