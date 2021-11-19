@@ -9,6 +9,10 @@ import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 
 import ResultListItem from './result-list-item';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  Link: ({ children }: any) => <div>{children}</div>,
+}));
 describe('ResultListItem', () => {
   const mockStore = configureStore<RootState>([]);
 
