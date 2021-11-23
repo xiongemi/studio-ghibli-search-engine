@@ -31,7 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected String getJSMainModuleName() {
-          return "apps/studio-ghibli-search-engine-app/src/main";
+          return "apps/studio-ghibli-search-engine-mobile/src/main";
         }
       };
 

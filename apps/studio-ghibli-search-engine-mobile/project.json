@@ -1,6 +1,6 @@
 {
-  "root": "apps/studio-ghibli-search-engine-app",
-  "sourceRoot": "apps/studio-ghibli-search-engine-app/src",
+  "root": "apps/studio-ghibli-search-engine-mobile",
+  "sourceRoot": "apps/studio-ghibli-search-engine-mobile/src",
   "projectType": "application",
   "targets": {
     "start": {
@@ -12,7 +12,7 @@
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "nx start studio-ghibli-search-engine-app"
+        "command": "nx start studio-ghibli-search-engine-mobile"
       }
     },
     "run-ios": {
@@ -21,11 +21,11 @@
     },
     "bundle-ios": {
       "executor": "@nrwl/react-native:bundle",
-      "outputs": ["apps/studio-ghibli-search-engine-app/build"],
+      "outputs": ["apps/studio-ghibli-search-engine-mobile/build"],
       "options": {
-        "entryFile": "apps/studio-ghibli-search-engine-app/src/main.tsx",
+        "entryFile": "apps/studio-ghibli-search-engine-mobile/src/main.tsx",
         "platform": "ios",
-        "bundleOutput": "dist/apps/studio-ghibli-search-engine-app/ios/main.jsbundle"
+        "bundleOutput": "dist/apps/studio-ghibli-search-engine-mobile/ios/main.jsbundle"
       }
     },
     "run-android": {
@@ -35,17 +35,17 @@
     "build-android": {
       "executor": "@nrwl/react-native:build-android",
       "outputs": [
-        "apps/studio-ghibli-search-engine-app/android/app/build/outputs/bundle",
-        "apps/studio-ghibli-search-engine-app/android/app/build/outputs/apk"
+        "apps/studio-ghibli-search-engine-mobile/android/app/build/outputs/bundle",
+        "apps/studio-ghibli-search-engine-mobile/android/app/build/outputs/apk"
       ],
       "options": {}
     },
     "bundle-android": {
       "executor": "@nrwl/react-native:bundle",
       "options": {
-        "entryFile": "apps/studio-ghibli-search-engine-app/src/main.tsx",
+        "entryFile": "apps/studio-ghibli-search-engine-mobile/src/main.tsx",
         "platform": "android",
-        "bundleOutput": "dist/apps/studio-ghibli-search-engine-app/android/main.jsbundle"
+        "bundleOutput": "dist/apps/studio-ghibli-search-engine-mobile/android/main.jsbundle"
       }
     },
     "sync-deps": {
@@ -61,15 +61,15 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/studio-ghibli-search-engine-app/**/*.{ts,tsx,js,jsx}"
+          "apps/studio-ghibli-search-engine-mobile/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/studio-ghibli-search-engine-app"],
+      "outputs": ["coverage/apps/studio-ghibli-search-engine-mobile"],
       "options": {
-        "jestConfig": "apps/studio-ghibli-search-engine-app/jest.config.js",
+        "jestConfig": "apps/studio-ghibli-search-engine-mobile/jest.config.js",
         "passWithNoTests": true
       }
     }

@@ -95,4 +95,4 @@ buck-out/
 
 node_modules/
 
-apps/studio-ghibli-search-engine-app-e2e/artifacts
+apps/studio-ghibli-search-engine-mobile-e2e/artifacts

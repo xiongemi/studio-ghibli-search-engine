@@ -78,7 +78,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "apps/studio-ghibli-search-engine-app/src/main.tsx",
+    entryFile: "apps/studio-ghibli-search-engine-mobile/src/main.tsx",
     enableHermes: false,  // clean and rebuild if changing
 ]
 

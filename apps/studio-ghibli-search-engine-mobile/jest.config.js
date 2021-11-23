@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'studio-ghibli-search-engine-app',
+  displayName: 'studio-ghibli-search-engine-mobile',
   preset: 'react-native',
   testRunner: 'jest-jasmine2',
   resolver: '@nrwl/jest/plugins/resolver',

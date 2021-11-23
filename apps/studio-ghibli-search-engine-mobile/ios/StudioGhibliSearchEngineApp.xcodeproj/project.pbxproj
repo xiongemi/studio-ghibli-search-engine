@@ -186,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh /Users/emilyxiong/Code/tmp/studio-ghibli-search-engine/apps/studio-ghibli-search-engine-app/src/main.tsx\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh /Users/emilyxiong/Code/tmp/studio-ghibli-search-engine/apps/studio-ghibli-search-engine-mobile/src/main.tsx\n";
 		};
 		02884E84544B8E84B8B8F340 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

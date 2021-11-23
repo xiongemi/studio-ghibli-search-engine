@@ -1,6 +1,6 @@
 {
-  "root": "apps/studio-ghibli-search-engine-app-e2e",
-  "sourceRoot": "apps/studio-ghibli-search-engine-app-e2e/src",
+  "root": "apps/studio-ghibli-search-engine-mobile-e2e",
+  "sourceRoot": "apps/studio-ghibli-search-engine-mobile-e2e/src",
   "projectType": "application",
   "targets": {
     "build-ios": {
@@ -52,11 +52,11 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/studio-ghibli-search-engine-app-e2e/**/*.{ts,tsx,js,jsx}"
+          "apps/studio-ghibli-search-engine-mobile-e2e/**/*.{ts,tsx,js,jsx}"
         ]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-app"]
+  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
 }
