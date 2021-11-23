@@ -1,16 +1,16 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { searchSlice } from '@studio-ghibli-search-engine/store';
 import { connectRouter } from 'connected-react-router';
 import { History } from 'history';
 
 import { filmsSlice } from '../films/films.slice';
 import { peopleSlice } from '../people/people.slice';
+import { searchSlice } from '../search/search.slice';
 
 import { RootState } from './root-state.interface';
 
-export const createRootReducer = (history: History) => combineReducers<RootState>({
+export const createRootReducer = (history?: History) => combineReducers<RootState>({
   films: filmsSlice.reducer,
-  router: connectRouter(history),
+  router: history ? connectRouter(history) : (() => ({})) as any,
   search: searchSlice.reducer,
   people: peopleSlice.reducer,
 });

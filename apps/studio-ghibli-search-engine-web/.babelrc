@@ -7,5 +7,15 @@
       }
     ]
   ],
-  "plugins": []
+  "plugins": [
+    [
+      "babel-plugin-module-resolver",
+      {
+        "alias": {
+          "react-native$": "react-native-web"
+        }
+      }
+    ],
+    ["react-native-web"]
+  ]
 }
