@@ -96,3 +96,6 @@ buck-out/
 node_modules/
 
 apps/studio-ghibli-search-engine-mobile-e2e/artifacts
+## Nested node_modules
+
+node_modules/

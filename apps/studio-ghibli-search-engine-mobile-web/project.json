@@ -22,7 +22,7 @@
           "apps/studio-ghibli-search-engine-mobile-web/src/styles.css"
         ],
         "scripts": [],
-        "webpackConfig": "apps/studio-ghibli-search-engine-mobile-web/webpack.js"
+        "webpackConfig": "apps/studio-ghibli-search-engine-mobile-web/webpack"
       },
       "configurations": {
         "production": {
