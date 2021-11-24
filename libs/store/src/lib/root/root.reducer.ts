@@ -8,9 +8,10 @@ import { searchSlice } from '../search/search.slice';
 
 import { RootState } from './root-state.interface';
 
-export const createRootReducer = (history?: History) => combineReducers<RootState>({
-  films: filmsSlice.reducer,
-  router: history ? connectRouter(history) : (() => ({})) as any,
-  search: searchSlice.reducer,
-  people: peopleSlice.reducer,
-});
+export const createRootReducer = (history?: History) =>
+  combineReducers<RootState>({
+    films: filmsSlice.reducer,
+    router: history ? connectRouter(history) : ((() => ({})) as any),
+    search: searchSlice.reducer,
+    people: peopleSlice.reducer,
+  });

@@ -9,13 +9,12 @@
   ],
   "plugins": [
     [
-      "babel-plugin-module-resolver",
+      "module-resolver",
       {
         "alias": {
-          "react-native$": "react-native-web"
+          "^react-native$": "react-native-web"
         }
       }
-    ],
-    ["react-native-web"]
+    ]
   ]
 }

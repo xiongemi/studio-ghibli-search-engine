@@ -20,7 +20,7 @@
         ],
         "styles": ["apps/studio-ghibli-search-engine-web/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "apps/studio-ghibli-search-engine-web/webpack.js"
       },
       "configurations": {
         "production": {

@@ -1,16 +1,27 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
-import { createRootStore } from '@studio-ghibli-search-engine/store';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createRootStore,
+  transformEntityStateToPersist,
+} from '@studio-ghibli-search-engine/store';
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Loading from './shared/loading/loading';
 import Search from './search/search';
+import Loading from './shared/loading/loading';
 
 const App = () => {
-  const { store, persistor } = createRootStore();
+  const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage,
+    whitelist: ['search', 'films', 'people'],
+    transforms: [transformEntityStateToPersist],
+  };
+
+  const { store, persistor } = createRootStore(persistConfig);
   const Stack = createNativeStackNavigator();
 
   return (

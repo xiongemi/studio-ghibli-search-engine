@@ -7,7 +7,7 @@ export interface SearchProps {}
 
 export function Search(props: SearchProps) {
   return (
-    <View testID='search'>
+    <View testID="search">
       <Text>Welcome to search!</Text>
     </View>
   );

@@ -5,9 +5,7 @@ import { ActivityIndicator } from 'react-native-paper';
 export interface LoadingProps {}
 
 export function Loading(props: LoadingProps) {
-  return (
-    <ActivityIndicator animating={true} />
-  );
+  return <ActivityIndicator animating={true} />;
 }
 
 export default Loading;
