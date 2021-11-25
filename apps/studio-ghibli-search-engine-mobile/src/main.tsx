@@ -1,4 +1,5 @@
-import { App } from '@studio-ghibli-search-engine/ui-mobile';
 import { AppRegistry } from 'react-native';
+
+import App from './app/App';
 
 AppRegistry.registerComponent('main', () => App);

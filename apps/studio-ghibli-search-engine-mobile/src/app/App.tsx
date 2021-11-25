@@ -5,6 +5,7 @@ import {
   createRootStore,
   transformEntityStateToPersist,
 } from '@studio-ghibli-search-engine/store';
+import { createMemoryHistory, History } from 'history';
 import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
@@ -20,8 +21,9 @@ const App = () => {
     whitelist: ['search', 'films', 'people'],
     transforms: [transformEntityStateToPersist],
   };
+  const history: History = createMemoryHistory();
 
-  const { store, persistor } = createRootStore(persistConfig);
+  const { store, persistor } = createRootStore(persistConfig, history);
   const Stack = createNativeStackNavigator();
 
   return (

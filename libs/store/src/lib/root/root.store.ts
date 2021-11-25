@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { RootState } from '@studio-ghibli-search-engine/store';
 import { History } from 'history';
 import logger from 'redux-logger';
 import {
@@ -15,11 +14,12 @@ import {
 } from 'redux-persist';
 
 import { initialRootState } from './root-state.initial';
+import { RootState } from './root-state.interface';
 import { createRootReducer } from './root.reducer';
 
 export const createRootStore = (
   persistConfig: PersistConfig<RootState>,
-  history?: History
+  history: History
 ) => {
   const isDevelopment = process.env.NODE_ENV === 'development';
 
