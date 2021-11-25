@@ -19,6 +19,8 @@ target 'StudioGhibliSearchEngineApp' do
   # you should disable the next line.
   use_flipper!()
 
+  pod 'RNVectorIcons', :path => '../../../node_modules/react-native-vector-icons'
+
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
