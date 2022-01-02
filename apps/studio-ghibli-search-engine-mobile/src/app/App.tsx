@@ -11,8 +11,11 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import Results from './results/results';
 import Search from './search/search';
+import { AppRoutes } from './shared/app-routes.enum';
 import Loading from './shared/loading/loading';
+import { RootStackParamList } from './shared/root-stack-param-list.type';
 
 const App = () => {
   const persistConfig = {
@@ -24,15 +27,16 @@ const App = () => {
   const history: History = createMemoryHistory();
 
   const { store, persistor } = createRootStore(persistConfig, history);
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<RootStackParamList>();
 
   return (
     <StoreProvider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
         <PaperProvider>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Search">
-              <Stack.Screen name="Search" component={Search} />
+            <Stack.Navigator initialRouteName={AppRoutes.search}>
+              <Stack.Screen name={AppRoutes.search} component={Search} />
+              <Stack.Screen name={AppRoutes.results} component={Results} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

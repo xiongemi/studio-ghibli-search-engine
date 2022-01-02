@@ -1,13 +1,18 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, ScrollView, Image, SafeAreaView } from 'react-native';
-import { TextInput, Button, Title, Headline } from 'react-native-paper';
+import { TextInput, Button, Headline } from 'react-native-paper';
 import { styles } from 'react-native-style-tachyons';
 
-/* eslint-disable-next-line */
-export interface SearchProps {}
+import { AppRoutes } from '../shared/app-routes.enum';
 
-export function Search(props: SearchProps) {
+export function Search() {
+  const navigation = useNavigation();
   const [text, setText] = React.useState('');
+
+  const searchPressed = () => {
+    navigation.navigate(AppRoutes.results, { search: text });
+  };
   return (
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
@@ -28,7 +33,7 @@ export function Search(props: SearchProps) {
           style={[styles.mt3, styles.mh3]}
           icon="magnify"
           mode="contained"
-          onPress={() => console.log('Pressed')}
+          onPress={() => searchPressed()}
         >
           Search
         </Button>

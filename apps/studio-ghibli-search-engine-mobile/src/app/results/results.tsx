@@ -1,9 +1,7 @@
 import React from 'react';
-
 import { View, Text } from 'react-native';
 
-/* eslint-disable-next-line */
-export interface ResultsProps {}
+import { ResultsProps } from './results.props';
 
 export function Results(props: ResultsProps) {
   return (
