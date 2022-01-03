@@ -1,7 +1,3 @@
-import Avatar from '@mui/material/Avatar';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import React from 'react';
 import { List } from 'react-native-paper';
@@ -19,7 +15,7 @@ export function FilmListItem({ film }: FilmListItemProps) {
     <List.Item
       title={film.title}
       description={film.description}
-      left={(props) => <List.Icon icon="folder" />}
+      left={() => <List.Icon icon="filmstrip" />}
     />
   );
 }

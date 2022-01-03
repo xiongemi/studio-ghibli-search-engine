@@ -8,8 +8,7 @@ import {
 const mapStateToProps = (state: RootState) => {
   return {
     results: searchSelectors.getSearchResults(state),
-    textToSearchInState: searchSelectors.getSearchText(state),
-    isSearchLoading: searchSelectors.isSearchLoading(state)
+    isSearchLoading: searchSelectors.isSearchLoading(state),
   };
 };
 

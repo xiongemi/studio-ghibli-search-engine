@@ -10,9 +10,14 @@ export function Search() {
   const navigation = useNavigation();
   const [text, setText] = React.useState('');
 
-  const searchPressed = () => {
+  const submitSearchForm = () => {
     navigation.navigate(AppRoutes.results, { search: text });
   };
+
+  const showAllFilms = () => {
+    navigation.navigate(AppRoutes.films);
+  };
+
   return (
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
@@ -33,9 +38,17 @@ export function Search() {
           style={[styles.mt3, styles.mh3]}
           icon="magnify"
           mode="contained"
-          onPress={() => searchPressed()}
+          onPress={() => submitSearchForm()}
         >
           Search
+        </Button>
+        <Button
+          style={[styles.mt3, styles.mh3]}
+          icon="filmstrip-box-multiple"
+          mode="outlined"
+          onPress={() => showAllFilms()}
+        >
+          All Films
         </Button>
       </ScrollView>
     </SafeAreaView>

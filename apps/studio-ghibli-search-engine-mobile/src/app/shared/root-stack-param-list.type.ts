@@ -2,6 +2,7 @@ import { AppRoutes } from './app-routes.enum';
 
 export type RootStackParamList = {
   [AppRoutes.search]: undefined;
+  [AppRoutes.films]: undefined;
   [AppRoutes.results]: { search: string };
 };
 

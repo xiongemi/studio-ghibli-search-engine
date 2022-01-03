@@ -1,5 +1,5 @@
-import { Grid } from '@mui/material';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import FilmCard from '../shared/film-card/film-card';
@@ -12,13 +12,11 @@ export function Films({ films, fetchFilms }: FilmsProps) {
   }, [fetchFilms]);
 
   return (
-    <Grid container spacing={2}>
-      {films?.map((film) => (
-        <Grid item xs={12} md={4} key={film.id}>
-          <FilmCard {...film} />
-        </Grid>
-      ))}
-    </Grid>
+    <SafeAreaView>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        {films && films?.map((film) => <FilmCard {...film} />)}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

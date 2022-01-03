@@ -1,4 +1,5 @@
 import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
+import React from 'react';
 
 import FilmListItem from '../film-list-item/film-list-item';
 import PeopleListItem from '../people-list-item/people-list-item';

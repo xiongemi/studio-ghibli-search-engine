@@ -23,6 +23,11 @@
     "react-redux": "*",
     "redux-logger": "*",
     "redux-persist": "*",
-    "string-similarity": "*"
+    "string-similarity": "*",
+    "@testing-library/react": "*",
+    "@mui/material": "*",
+    "react-router-dom": "*",
+    "truncate": "*",
+    "redux-mock-store": "*"
   }
 }
