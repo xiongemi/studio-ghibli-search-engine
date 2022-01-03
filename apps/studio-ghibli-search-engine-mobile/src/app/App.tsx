@@ -11,6 +11,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider as StoreProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import Film from './film/film';
 import Films from './films/films';
 import Results from './results/results';
 import Search from './search/search';
@@ -39,6 +40,7 @@ const App = () => {
               <Stack.Screen name={AppRoutes.search} component={Search} />
               <Stack.Screen name={AppRoutes.results} component={Results} />
               <Stack.Screen name={AppRoutes.films} component={Films} />
+              <Stack.Screen name={AppRoutes.film} component={Film} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

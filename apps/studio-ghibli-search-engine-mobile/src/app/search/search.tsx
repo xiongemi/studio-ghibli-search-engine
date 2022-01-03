@@ -1,14 +1,21 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, ScrollView, Image, SafeAreaView } from 'react-native';
 import { TextInput, Button, Headline } from 'react-native-paper';
 import { styles } from 'react-native-style-tachyons';
+import { connect } from 'react-redux';
 
 import { AppRoutes } from '../shared/app-routes.enum';
 
-export function Search() {
+import { mapStateToProps, SearchProps } from './search.props';
+
+export function Search({ textToSearchInState }: SearchProps) {
   const navigation = useNavigation();
   const [text, setText] = React.useState('');
+
+  useEffect(() => {
+    setText(textToSearchInState);
+  }, [textToSearchInState]);
 
   const submitSearchForm = () => {
     navigation.navigate(AppRoutes.results, { search: text });
@@ -39,6 +46,7 @@ export function Search() {
           icon="magnify"
           mode="contained"
           onPress={() => submitSearchForm()}
+          disabled={!text.length}
         >
           Search
         </Button>
@@ -55,4 +63,4 @@ export function Search() {
   );
 }
 
-export default Search;
+export default connect(mapStateToProps)(Search);

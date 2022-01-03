@@ -1,16 +1,11 @@
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ScrollView, SafeAreaView, View } from 'react-native';
-import {
-  ActivityIndicator,
-  Searchbar,
-  Subheading,
-  TextInput,
-} from 'react-native-paper';
+import { Divider, Searchbar, Subheading } from 'react-native-paper';
 import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
-import { AppRoutes } from '../shared/app-routes.enum';
+import Loading from '../shared/loading/loading';
 
 import ResultListItem from './result-list-item/result-list-item';
 import {
@@ -47,10 +42,13 @@ export function Results({
           onChangeText={submitSearchForm}
         />
         {isSearchLoading ? (
-          <ActivityIndicator animating={true} size="large" />
+          <Loading />
         ) : (results && results.length) || !textToSearchInState ? (
           results.map((result) => (
-            <ResultListItem key={result.id} listItem={result} />
+            <>
+              <ResultListItem key={result.id} listItem={result} />
+              <Divider />
+            </>
           ))
         ) : (
           <View style={[styles.pa3, styles.tc]}>

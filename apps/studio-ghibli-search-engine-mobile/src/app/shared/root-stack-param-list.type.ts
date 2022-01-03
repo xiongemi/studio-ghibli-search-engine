@@ -4,6 +4,7 @@ export type RootStackParamList = {
   [AppRoutes.search]: undefined;
   [AppRoutes.films]: undefined;
   [AppRoutes.results]: { search: string };
+  [AppRoutes.film]: { id: string };
 };
 
 declare global {
