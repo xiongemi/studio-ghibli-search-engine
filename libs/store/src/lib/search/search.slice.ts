@@ -5,7 +5,7 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit';
 import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
-import stringSimilarity from 'string-similarity';
+import { compareTwoStrings } from 'string-similarity';
 
 import { filmsActions, filmsSelectors } from '../films/films.slice';
 import { peopleActions, peopleSelectors } from '../people/people.slice';
@@ -94,29 +94,34 @@ export const getSearchResults = createSelector(
     if (!searchText) {
       return [];
     }
-    const peopleResults = peopleEntities
-      .map((people) => {
-        return {
-          ...people,
-          similarity: stringSimilarity.compareTwoStrings(
-            people.name,
-            searchText
-          ),
-        };
-      })
-      .filter((people) => people.similarity > 0.3);
     const filmResults = filmEntities
       .map((film) => ({
         ...film,
         similarity: film.title.toLowerCase().includes(searchText.toLowerCase())
           ? 0.8
-          : stringSimilarity.compareTwoStrings(film.title, searchText),
+          : compareTwoStrings(film.title, searchText),
       }))
       .filter((film) => film.similarity > 0.3);
-    return [...peopleResults, ...filmResults].sort(
+    const peopleResults = peopleEntities
+      .map((people) => {
+        return {
+          ...people,
+          similarity: people.name
+            .toLowerCase()
+            .includes(searchText.toLowerCase())
+            ? 0.8
+            : compareTwoStrings(people.name, searchText),
+        };
+      })
+      .filter((people) => people.similarity > 0.3);
+    return [...filmResults, ...peopleResults].sort(
       (a, b) => b.similarity - a.similarity
     );
   }
 );
 
-export const searchSelectors = { getSearchText, getSearchResults, isSearchLoading };
+export const searchSelectors = {
+  getSearchText,
+  getSearchResults,
+  isSearchLoading,
+};

@@ -1,10 +1,10 @@
-import { PeopleResponse } from '@studio-ghibli-search-engine/services';
-
 import { FilmResponse } from '../models/film-response.interface';
+import { PeopleResponse } from '../models/people-response.interface';
+import { getEnv } from '../utils/get-env';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 const baseUrl =
-  (isDevelopment ? 'http' : 'https') + process.env.NX_REQUEST_BASE_URL;
+  (isDevelopment ? 'http' : 'https') + getEnv('NX_REQUEST_BASE_URL');
 
 export async function getFilms(): Promise<FilmResponse[]> {
   const response: Response = await fetch(baseUrl + '/films', { method: 'GET' });

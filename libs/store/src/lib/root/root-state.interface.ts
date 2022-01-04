@@ -8,5 +8,5 @@ export interface RootState {
   films: FilmsState;
   search: SearchState;
   people: PeopleState;
-  router: RouterState;
+  router?: RouterState;
 }

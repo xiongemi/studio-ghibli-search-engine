@@ -1,11 +1,15 @@
 import MovieIcon from '@mui/icons-material/Movie';
 import { AppBar, Toolbar, IconButton, Container, Link } from '@mui/material';
-import { createRootStore } from '@studio-ghibli-search-engine/store';
+import {
+  createRootStore,
+  transformEntityStateToPersist,
+} from '@studio-ghibli-search-engine/store';
 import { ConnectedRouter } from 'connected-react-router';
 import { createHashHistory, History } from 'history';
 import { Provider } from 'react-redux';
 import { Link as RouterLink, Redirect, Route, Switch } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
+import storage from 'redux-persist/lib/storage';
 
 import { AppRoutes } from './app-routes.enum';
 import Film from './film/film';
@@ -16,8 +20,15 @@ import Search from './search/search';
 import Loading from './shared/loading/loading';
 
 export function App() {
+  const persistConfig = {
+    key: 'root',
+    storage: storage,
+    whitelist: ['search', 'films', 'people'],
+    transforms: [transformEntityStateToPersist],
+  };
+
   const history: History = createHashHistory();
-  const { store, persistor } = createRootStore(history);
+  const { store, persistor } = createRootStore(persistConfig, history);
 
   return (
     <Provider store={store}>

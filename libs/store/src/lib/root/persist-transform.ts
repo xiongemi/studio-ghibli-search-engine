@@ -3,7 +3,12 @@ import { createTransform } from 'redux-persist';
 
 const transformEntityStateToPersist = createTransform(
   // transform state on its way to being serialized and persisted.
-  (entityState: EntityState<any>) => {
+  (
+    entityState: EntityState<any>
+  ): {
+    ids: string;
+    entities: string;
+  } => {
     return {
       ...entityState,
       ids: JSON.stringify(entityState.ids),
@@ -11,12 +16,12 @@ const transformEntityStateToPersist = createTransform(
     };
   },
   // transform state being rehydrated
-  (entityState): EntityState<any> => {
+  (entityState: { ids: string; entities: string }): EntityState<any> => {
     return {
       ...entityState,
       ids: JSON.parse(entityState.ids),
       entities: JSON.parse(entityState.entities),
-    }
+    };
   },
   // define which reducers this transform gets called for.
   { whitelist: ['films', 'people'] }

@@ -9,7 +9,6 @@ import Loading from '../shared/loading/loading';
 import { FilmProps, mapDispatchToProps, mapStateToProps } from './film.props';
 
 export function Film({ getFilm, fetchFilms }: FilmProps) {
-  const streamingUrl = process.env.NX_STREAMING_URL;
   const { id } = useParams<{ id: string }>();
   const [film, setFilm] = useState<FilmEntity>();
 
@@ -43,12 +42,18 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
           Rotten Tomatoes Score: {film.rtScore}
         </Typography>
         <Button
-          variant="contained"
           component="a"
-          href={streamingUrl}
+          href={process.env.NX_HBO_STREAMING_URL}
           target="_blank"
         >
-          Watch
+          Watch on HBO Max
+        </Button>
+        <Button
+          component="a"
+          href={process.env.NX_NETFLIX_STREAMING_URL}
+          target="_blank"
+        >
+          Watch on Netflix
         </Button>
       </Grid>
       <Grid item md={12}>

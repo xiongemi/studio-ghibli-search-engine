@@ -10,10 +10,10 @@ export function Films({ films, fetchFilms }: FilmsProps) {
   useEffect(() => {
     fetchFilms();
   }, [fetchFilms]);
-  
+
   return (
     <Grid container spacing={2}>
-      {films.map((film) => (
+      {films?.map((film) => (
         <Grid item xs={12} md={4} key={film.id}>
           <FilmCard {...film} />
         </Grid>

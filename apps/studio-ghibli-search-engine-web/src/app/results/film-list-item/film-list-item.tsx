@@ -16,7 +16,7 @@ export interface FilmListItemProps {
 export function FilmListItem({ film }: FilmListItemProps) {
   const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>(
     (props, ref) => (
-      <Link to={`${AppRoutes.film}/${film.id}`} {...props} ref={ref} />
+      <Link to={`${AppRoutes.film}/${film.id}`} {...props} innerRef={ref} />
     )
   );
 
