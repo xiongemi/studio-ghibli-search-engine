@@ -12,7 +12,7 @@ function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
   const navigation = useNavigation();
 
   const viewPeopleDetails = () => {
-    navigation.navigate(AppRoutes.film, { id: people.id });
+    navigation.navigate(AppRoutes.people, { id: people.id });
   };
 
   const films: string[] = people.films?.map((film) => {

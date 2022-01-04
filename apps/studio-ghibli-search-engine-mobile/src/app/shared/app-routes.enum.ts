@@ -3,4 +3,5 @@ export enum AppRoutes {
   results = 'Results',
   films = 'Films',
   film = 'Film',
+  people = 'People',
 }

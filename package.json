@@ -12,7 +12,9 @@
     "mobile": "nx serve studio-ghibli-search-engine-mobile --reset-cache",
     "mobile-web": "nx serve studio-ghibli-search-engine-mobile-web",
     "ios": "nx run-ios studio-ghibli-search-engine-mobile",
-    "android": "nx run-android studio-ghibli-search-engine-mobile"
+    "android": "nx run-android studio-ghibli-search-engine-mobile",
+    "prebundle-analyze": "npm run predeploy -- --statsJson",
+    "bundle-analyze": "webpack-bundle-analyzer dist/apps/studio-ghibli-search-engine-web/stats.json"
   },
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -110,6 +112,7 @@
     "stringify-entities": "^4.0.2",
     "truncate": "^3.0.0",
     "ts-jest": "27.0.5",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }

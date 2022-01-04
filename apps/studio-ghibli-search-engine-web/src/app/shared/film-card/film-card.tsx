@@ -46,14 +46,14 @@ export function FilmCard(film: FilmEntity) {
           href={process.env.NX_HBO_STREAMING_URL}
           target="_blank"
         >
-          Watch on HBO Max
+          HBO Max
         </Button>
         <Button
           component="a"
           href={process.env.NX_NETFLIX_STREAMING_URL}
           target="_blank"
         >
-          Watch on Netflix
+          Netflix
         </Button>
         <Button component={MyButton} size="small">
           Learn More

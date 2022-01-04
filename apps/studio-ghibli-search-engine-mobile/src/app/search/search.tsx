@@ -14,7 +14,9 @@ export function Search({ textToSearchInState }: SearchProps) {
   const [text, setText] = React.useState('');
 
   useEffect(() => {
-    setText(textToSearchInState);
+    if (textToSearchInState) {
+      setText(textToSearchInState);
+    }
   }, [textToSearchInState]);
 
   const submitSearchForm = () => {

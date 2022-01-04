@@ -1,4 +1,4 @@
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ScrollView, SafeAreaView, View } from 'react-native';
 import { Divider, Searchbar, Subheading } from 'react-native-paper';
@@ -38,17 +38,17 @@ export function Results({
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Searchbar
           placeholder="Any film or character"
-          value={textToSearchInState}
+          value={textToSearchInState || ''}
           onChangeText={submitSearchForm}
         />
         {isSearchLoading ? (
           <Loading />
         ) : (results && results.length) || !textToSearchInState ? (
           results.map((result) => (
-            <>
-              <ResultListItem key={result.id} listItem={result} />
+            <View key={result.id}>
+              <ResultListItem listItem={result} />
               <Divider />
-            </>
+            </View>
           ))
         ) : (
           <View style={[styles.pa3, styles.tc]}>

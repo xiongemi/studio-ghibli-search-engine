@@ -13,6 +13,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import Film from './film/film';
 import Films from './films/films';
+import People from './people/people';
 import Results from './results/results';
 import Search from './search/search';
 import { AppRoutes } from './shared/app-routes.enum';
@@ -41,6 +42,7 @@ const App = () => {
               <Stack.Screen name={AppRoutes.results} component={Results} />
               <Stack.Screen name={AppRoutes.films} component={Films} />
               <Stack.Screen name={AppRoutes.film} component={Film} />
+              <Stack.Screen name={AppRoutes.people} component={People} />
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>

@@ -1,5 +1,6 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
+import { getEnv } from '@studio-ghibli-search-engine/services';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, Image, View } from 'react-native';
 import {
@@ -14,6 +15,7 @@ import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
 import Loading from '../shared/loading/loading';
+import { useLink } from '../shared/open-link/open-link';
 
 import { FilmProps, mapDispatchToProps, mapStateToProps } from './film.props';
 
@@ -22,6 +24,9 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
 
   const route = useRoute<RouteProp<{ params: { id: string } }>>();
   const id = route.params?.id;
+
+  const openHboMax = useLink(getEnv('NX_HBO_STREAMING_URL'), 'HBO Max');
+  const openNetflix = useLink(getEnv('NX_NETFLIX_STREAMING_URL'), 'Netflix');
 
   useEffect(() => {
     fetchFilms();
@@ -56,8 +61,8 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
 
           <Divider />
 
-          <Button>Watch on HBO Max</Button>
-          <Button>Watch on Netflix</Button>
+          <Button onPress={openHboMax}>Watch on HBO Max</Button>
+          <Button onPress={openNetflix}>Watch on Netflix</Button>
         </View>
       </ScrollView>
     </SafeAreaView>

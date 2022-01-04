@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { compareTwoStrings } from 'string-similarity';
 
 import FilmCard from '../shared/film-card/film-card';
+import Loading from '../shared/loading/loading';
 
 import { FilmsProps, mapDispatchToProps, mapStateToProps } from './flims.props';
 
@@ -37,7 +38,11 @@ export function Films({ films, fetchFilms }: FilmsProps) {
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Searchbar value={text} onChangeText={setText} />
-        {filteredFilms && filteredFilms?.map((film) => <FilmCard {...film} />)}
+        {filteredFilms ? (
+          filteredFilms?.map((film) => <FilmCard key={film.id} {...film} />)
+        ) : (
+          <Loading />
+        )}
       </ScrollView>
     </SafeAreaView>
   );

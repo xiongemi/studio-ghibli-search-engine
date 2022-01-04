@@ -1,17 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { History } from 'history';
 import logger from 'redux-logger';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-  PersistConfig,
-} from 'redux-persist';
+import { persistStore, persistReducer, PersistConfig } from 'redux-persist';
 
 import { initialRootState } from './root-state.initial';
 import { RootState } from './root-state.interface';
@@ -30,9 +20,7 @@ export const createRootStore = (
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => {
       const defaultMiddleware = getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
+        serializableCheck: false,
       });
       return isDevelopment
         ? defaultMiddleware.concat(logger)
