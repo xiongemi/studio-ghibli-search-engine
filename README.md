@@ -6,6 +6,10 @@ This project was generated using [Nx](https://nx.dev).
 
 🔎 **Smart, Extensible Build Framework**
 
+This app is a search engine for Studio Ghibli. It allows you to search any film and character under Studio Ghibli.
+
+![web screenshot](https://github.com/xiongemi/studio-ghibli-search-engine/blob/main/images/home-web.png?raw=true)
+
 ## Commands
 
 - run web app: `npm run start`
