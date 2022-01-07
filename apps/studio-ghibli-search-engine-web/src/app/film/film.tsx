@@ -1,3 +1,4 @@
+import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
 import { Button, Grid, Typography } from '@mui/material';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import { useEffect, useState } from 'react';
@@ -42,6 +43,7 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
           Rotten Tomatoes Score: {film.rtScore}
         </Typography>
         <Button
+          startIcon={<CameraOutdoorIcon />}
           component="a"
           href={process.env.NX_HBO_STREAMING_URL}
           target="_blank"
@@ -49,6 +51,7 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
           Watch on HBO Max
         </Button>
         <Button
+          startIcon={<CameraOutdoorIcon />}
           component="a"
           href={process.env.NX_NETFLIX_STREAMING_URL}
           target="_blank"
