@@ -59,7 +59,7 @@ export function App() {
             </Toolbar>
           </AppBar>
           <Toolbar />
-          <Container maxWidth="md">
+          <Container maxWidth="lg">
             <Switch>
               <Route path={AppRoutes.search}>
                 <Search />
