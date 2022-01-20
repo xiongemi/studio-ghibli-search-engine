@@ -9,6 +9,7 @@
     "test": "nx test",
     "predeploy": "nx build studio-ghibli-search-engine-web --prod --baseHref=studio-ghibli-search-engine",
     "deploy": "gh-pages -d dist/apps/studio-ghibli-search-engine-web",
+    "web": "npm run start",
     "mobile": "nx serve studio-ghibli-search-engine-mobile --reset-cache",
     "mobile-web": "nx serve studio-ghibli-search-engine-mobile-web",
     "ios": "nx run-ios studio-ghibli-search-engine-mobile",

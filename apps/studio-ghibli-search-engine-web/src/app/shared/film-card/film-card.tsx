@@ -1,3 +1,4 @@
+import CameraOutdoorIcon from '@mui/icons-material/CameraOutdoor';
 import {
   Card,
   CardMedia,
@@ -5,6 +6,7 @@ import {
   Typography,
   CardActions,
   Button,
+  CardActionArea,
 } from '@mui/material';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import React from 'react';
@@ -26,22 +28,25 @@ export function FilmCard(film: FilmEntity) {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={film.image}
-        alt={film.title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {film.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {truncate(film.description, 200)}
-        </Typography>
-      </CardContent>
+      <CardActionArea component={MyButton}>
+        <CardMedia
+          component="img"
+          height="140"
+          image={film.image}
+          alt={film.title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {film.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {truncate(film.description, 200)}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
       <CardActions>
         <Button
+          startIcon={<CameraOutdoorIcon />}
           component="a"
           href={process.env.NX_HBO_STREAMING_URL}
           target="_blank"
@@ -49,14 +54,12 @@ export function FilmCard(film: FilmEntity) {
           HBO Max
         </Button>
         <Button
+          startIcon={<CameraOutdoorIcon />}
           component="a"
           href={process.env.NX_NETFLIX_STREAMING_URL}
           target="_blank"
         >
           Netflix
-        </Button>
-        <Button component={MyButton} size="small">
-          Learn More
         </Button>
       </CardActions>
     </Card>

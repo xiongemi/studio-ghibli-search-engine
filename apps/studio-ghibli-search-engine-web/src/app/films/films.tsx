@@ -14,7 +14,7 @@ export function Films({ films, fetchFilms }: FilmsProps) {
   return (
     <Grid container spacing={2}>
       {films?.map((film) => (
-        <Grid item xs={12} md={4} key={film.id}>
+        <Grid item xs={12} sm={6} md={4} key={film.id}>
           <FilmCard {...film} />
         </Grid>
       ))}
