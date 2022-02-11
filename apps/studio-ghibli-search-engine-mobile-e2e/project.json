@@ -17,11 +17,13 @@
     "test-ios": {
       "executor": "@nrwl/detox:test",
       "options": {
-        "detoxConfiguration": "ios.sim.debug"
+        "detoxConfiguration": "ios.sim.debug",
+        "buildTarget": "studio-ghibli-search-engine-mobile-e2e:build-ios"
       },
       "configurations": {
         "production": {
-          "detoxConfiguration": "ios.sim.release"
+          "detoxConfiguration": "ios.sim.release",
+          "buildTarget": "studio-ghibli-search-engine-mobile-e2e:build-ios:prod"
         }
       }
     },
@@ -39,11 +41,13 @@
     "test-android": {
       "executor": "@nrwl/detox:test",
       "options": {
-        "detoxConfiguration": "android.emu.debug"
+        "detoxConfiguration": "android.emu.debug",
+        "buildTarget": "studio-ghibli-search-engine-mobile-e2e:build-android"
       },
       "configurations": {
         "production": {
-          "detoxConfiguration": "android.emu.release"
+          "detoxConfiguration": "android.emu.release",
+          "buildTarget": "studio-ghibli-search-engine-mobile-e2e:build-android:prod"
         }
       }
     },
