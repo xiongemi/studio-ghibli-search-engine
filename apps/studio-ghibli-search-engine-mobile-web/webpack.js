@@ -20,8 +20,7 @@ function getCustomWebpackConfig(webpackConfig) {
               runtime: 'automatic',
             },
           ],
-        ],
-        plugins: ['react-native-web'],
+        ]
       },
     },
   });

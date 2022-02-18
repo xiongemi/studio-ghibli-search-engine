@@ -3,6 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   createRootStore,
+  FILMS_FEATURE_KEY,
+  PEOPLE_FEATURE_KEY,
+  SEARCH_FEATURE_KEY,
   transformEntityStateToPersist,
 } from '@studio-ghibli-search-engine/store';
 import { createMemoryHistory, History } from 'history';
@@ -24,7 +27,7 @@ const App = () => {
   const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['search', 'films', 'people'],
+    whitelist: [SEARCH_FEATURE_KEY, FILMS_FEATURE_KEY, PEOPLE_FEATURE_KEY],
     transforms: [transformEntityStateToPersist],
   };
   const history: History = createMemoryHistory();

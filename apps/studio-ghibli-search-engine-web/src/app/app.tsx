@@ -2,6 +2,9 @@ import MovieIcon from '@mui/icons-material/Movie';
 import { AppBar, Toolbar, IconButton, Container, Link } from '@mui/material';
 import {
   createRootStore,
+  FILMS_FEATURE_KEY,
+  PEOPLE_FEATURE_KEY,
+  SEARCH_FEATURE_KEY,
   transformEntityStateToPersist,
 } from '@studio-ghibli-search-engine/store';
 import { ConnectedRouter } from 'connected-react-router';
@@ -23,7 +26,7 @@ export function App() {
   const persistConfig = {
     key: 'root',
     storage: storage,
-    whitelist: ['search', 'films', 'people'],
+    whitelist: [SEARCH_FEATURE_KEY, FILMS_FEATURE_KEY, PEOPLE_FEATURE_KEY],
     transforms: [transformEntityStateToPersist],
   };
 

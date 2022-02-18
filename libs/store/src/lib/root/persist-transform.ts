@@ -22,9 +22,7 @@ const transformEntityStateToPersist = createTransform(
       ids: JSON.parse(entityState.ids),
       entities: JSON.parse(entityState.entities),
     };
-  },
-  // define which reducers this transform gets called for.
-  { whitelist: ['films', 'people'] }
+  }
 );
 
 export { transformEntityStateToPersist };
