@@ -93,7 +93,7 @@ export const selectFilmById = (id: string) =>
   createSelector(
     getFilmsState,
     (filmState: FilmsState): FilmEntity | undefined => {
-      return selectById(filmState, id) || undefined;
+      return selectById(filmState, id);
     }
   );
 
