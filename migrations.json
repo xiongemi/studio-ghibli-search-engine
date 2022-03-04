@@ -1,44 +1,12 @@
 {
   "migrations": [
     {
-      "version": "13.6.0-beta.0",
-      "description": "Remove old options that are no longer used",
+      "version": "13.8.2-beta.0",
       "cli": "nx",
-      "implementation": "./src/migrations/update-13-6-0/remove-old-task-runner-options",
-      "package": "@nrwl/workspace",
-      "name": "13-6-0-remove-old-task-runner-options"
-    },
-    {
-      "cli": "nx",
-      "version": "13.8.0-beta.1",
-      "description": "Add a postcss config option to apps to load a single config file for all libs",
-      "factory": "./src/migrations/update-13-8-0/add-postcss-config-option",
-      "package": "@nrwl/web",
-      "name": "add-postcss-config-option"
-    },
-    {
-      "version": "13.5.0-beta.0",
-      "cli": "nx",
-      "description": "Update typing for svg in react native",
-      "factory": "./src/migrations/update-13-5-0/update-react-native-typing-svg-13-5-0",
-      "package": "@nrwl/react-native",
-      "name": "update-react-native-typing-svg-13-5-0"
-    },
-    {
-      "version": "13.5.0-beta.0",
-      "cli": "nx",
-      "description": "Add babel.config.json at root for react native workspace if it does not exist",
-      "factory": "./src/migrations/update-13-5-0/add-babel-config-root-13-5-0",
-      "package": "@nrwl/react-native",
-      "name": "add-babel-config-root-13-5-0"
-    },
-    {
-      "version": "13.5.0-beta.0",
-      "cli": "nx",
-      "description": "buildTarget to test-ios and test-android for detox app",
-      "factory": "./src/migrations/update-13-5-0/add-build-target-test-13-5-0",
+      "description": "remove deprecated @types/detox from package.json",
+      "factory": "./src/migrations/update-13-8-2/remove-types-detox-13-8-2",
       "package": "@nrwl/detox",
-      "name": "add-build-target-test-13-5-0"
+      "name": "remove-types-detox-13-8-2"
     }
   ]
 }
