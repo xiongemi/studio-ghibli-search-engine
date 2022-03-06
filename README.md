@@ -24,6 +24,9 @@ API: https://ghibliapi.herokuapp.com/
 - run mobile web app: `npm run mobile-web`
 - deploy to github pages: `npm run deploy`
 - run bundle analyzer: `npm run bundle-analyze`
+- run e2e test on ios: `nx test-ios studio-ghibli-search-engine-mobile-e2e`
+- run e2e test on android: `nx test-android studio-ghibli-search-engine-mobile-e2e`
+
 
 ## Adding capabilities to your workspace
 

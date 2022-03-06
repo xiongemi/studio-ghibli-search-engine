@@ -103,6 +103,7 @@
     "metro-resolver": "0.67.0",
     "prettier": "2.5.1",
     "react-native-config": "1.4.5",
+    "react-native-gesture-handler": "^2.3.0",
     "react-native-reanimated": "^2.4.1",
     "react-native-style-tachyons": "^4.2.0",
     "react-native-svg": "12.1.1",
