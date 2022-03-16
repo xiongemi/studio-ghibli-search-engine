@@ -28,14 +28,14 @@ export function Search({ textToSearchInState }: SearchProps) {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="search-page">
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Image
           style={{ height: 200, width: '100%', resizeMode: 'contain' }}
           source={require('../../assets/logo.png')}
         />
         <View style={[styles.mt3, styles.flex, styles.aic]}>
-          <Headline>Studio Ghibli Search Engine</Headline>
+          <Headline testID="heading">Studio Ghibli Search Engine</Headline>
         </View>
         <TextInput
           style={[styles.mt3]}

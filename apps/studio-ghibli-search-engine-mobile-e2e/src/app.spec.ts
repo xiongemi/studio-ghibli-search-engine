@@ -6,13 +6,10 @@ describe('StudioGhibliSearchEngineApp', () => {
   });
 
   it('should display welcome message', async () => {
+    await waitFor(element(by.id('search-page'))).toBeVisible().withTimeout(5000);
+    await expect(element(by.id('heading'))).toBeVisible();
     await expect(element(by.id('heading'))).toHaveText(
-      'Welcome to StudioGhibliSearchEngineApp'
+      'Studio Ghibli Search Engine'
     );
-  });
-
-  it('should open nx link', async () => {
-    await expect(element(by.id('nx-link'))).toBeVisible();
-    element(by.id('nx-link')).tap();
   });
 });
