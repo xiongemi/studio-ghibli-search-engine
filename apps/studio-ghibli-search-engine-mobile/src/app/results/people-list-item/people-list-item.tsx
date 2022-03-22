@@ -1,14 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
-import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import React from 'react';
-import { List, Avatar } from 'react-native-paper';
+import { List } from 'react-native-paper';
 import { connect } from 'react-redux';
 
 import { AppRoutes } from '../../shared/app-routes.enum';
 
 import { mapStateToProps, PeopleListItemProps } from './people-list-item.props';
 
-function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
+export function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
   const navigation = useNavigation();
 
   const viewPeopleDetails = () => {

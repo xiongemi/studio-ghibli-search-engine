@@ -2,8 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import React from 'react';
 import { List } from 'react-native-paper';
-import { Link, LinkProps } from 'react-router-dom';
-import truncate from 'truncate';
 
 import { AppRoutes } from '../../shared/app-routes.enum';
 

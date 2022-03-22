@@ -23,7 +23,7 @@ import { AppRoutes } from './shared/app-routes.enum';
 import Loading from './shared/loading/loading';
 import { RootStackParamList } from './shared/root-stack-param-list.type';
 
-const App = () => {
+export const App = () => {
   const persistConfig = {
     key: 'root',
     storage: AsyncStorage,

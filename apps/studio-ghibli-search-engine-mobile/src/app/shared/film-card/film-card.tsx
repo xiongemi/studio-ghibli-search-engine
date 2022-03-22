@@ -21,7 +21,7 @@ export function FilmCard(film: FilmEntity) {
 
   return (
     <Card style={[styles.mb2]}>
-      <Card.Cover source={{ uri: film.image }} />
+      <Card.Cover source={{ uri: film.image }}/>
       <Card.Content>
         <Title>{film.title}</Title>
         <Paragraph> {truncate(film.description, 200)}</Paragraph>

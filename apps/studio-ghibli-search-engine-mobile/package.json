@@ -29,6 +29,11 @@
     "redux-mock-store": "*",
     "redux-persist": "*",
     "string-similarity": "*",
-    "truncate": "*"
+    "truncate": "*",
+    "@storybook/react-native": "*",
+    "@storybook/addon-ondevice-actions": "*",
+    "@storybook/addon-ondevice-backgrounds": "*",
+    "@storybook/addon-ondevice-controls": "*",
+    "@storybook/addon-ondevice-notes": "*"
   }
 }

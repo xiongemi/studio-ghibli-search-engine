@@ -72,6 +72,15 @@
         "jestConfig": "apps/studio-ghibli-search-engine-mobile/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "storybook": {
+      "executor": "@nrwl/react-native:storybook",
+      "options": {
+        "searchDir": "apps/studio-ghibli-search-engine-mobile",
+        "outputFile": "./.storybook/story-loader.js",
+        "pattern": "**/*.stories.@(js|jsx|ts|tsx|md)",
+        "silent": false
+      }
     }
   },
   "tags": []

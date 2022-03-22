@@ -9,9 +9,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "files": [
-    "../../node_modules/@nrwl/react-native/typings/svg.d.ts"
-  ],
+  "files": ["../../node_modules/@nrwl/react-native/typings/svg.d.ts"],
   "include": [],
   "references": [
     {
@@ -19,6 +17,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./.storybook/tsconfig.json"
     }
   ],
   "exclude": ["node_modules"]

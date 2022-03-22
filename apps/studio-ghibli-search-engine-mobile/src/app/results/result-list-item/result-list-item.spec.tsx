@@ -13,6 +13,7 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   Link: ({ children }: any) => <div>{children}</div>,
 }));
+
 describe('ResultListItem', () => {
   const mockStore = configureStore<RootState>([]);
 
