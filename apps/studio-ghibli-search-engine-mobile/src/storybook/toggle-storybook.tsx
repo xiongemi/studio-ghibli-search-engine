@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState, useEffect, useRef } from 'react';
 import { DevSettings } from 'react-native';
 
-import AppRoot from '../src/app/App';
+import AppRoot from '../app/App';
 
 export const DEFAULT_REACTOTRON_WS_URI = 'ws://localhost:9090';
 

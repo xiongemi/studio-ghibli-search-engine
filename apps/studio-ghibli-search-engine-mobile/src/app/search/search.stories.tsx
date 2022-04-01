@@ -11,7 +11,7 @@ import React from 'react';
 import { Provider as StoreProvider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import { NavigationDecorator } from '../../../.storybook/mocks/navigation';
+import { NavigationDecorator } from '../../storybook/mocks/navigation';
 
 import Search from './search';
 

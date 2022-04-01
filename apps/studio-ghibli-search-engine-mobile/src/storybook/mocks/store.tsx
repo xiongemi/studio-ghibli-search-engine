@@ -1,3 +1,7 @@
+import {
+  initialRootState,
+  RootState,
+} from '@studio-ghibli-search-engine/store';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
