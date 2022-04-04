@@ -4,6 +4,7 @@ import {
   RootState,
 } from '@studio-ghibli-search-engine/store';
 import { render } from '@testing-library/react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 

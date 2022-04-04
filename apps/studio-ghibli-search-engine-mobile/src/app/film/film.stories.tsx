@@ -29,7 +29,7 @@ const NavigationDecorator = (story) => {
 
 export const StoreDecorator = (story) => {
   const mockStore = configureStore<RootState>([thunk]);
-  const store = mockStore(initialRootState);
+  const store = mockStore({...initialRootState, });
   return <StoreProvider store={store}>{story()}</StoreProvider>;
 };
 
