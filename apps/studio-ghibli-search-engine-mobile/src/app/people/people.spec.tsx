@@ -1,15 +1,10 @@
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react-native';
 
 import { People } from './people';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useParams: () => ({ id: 'random id' }),
-}));
-
 describe('People', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(
+    const { container } = render(
       <People
         loadingStatus={'loaded'}
         getFilmById={jest.fn()}
@@ -17,6 +12,6 @@ describe('People', () => {
         fetchPeople={jest.fn()}
       />
     );
-    expect(baseElement).toBeTruthy();
+    expect(container).toBeTruthy();
   });
 });

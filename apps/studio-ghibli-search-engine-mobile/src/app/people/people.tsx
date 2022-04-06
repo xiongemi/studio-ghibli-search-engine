@@ -2,7 +2,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, Image, View } from 'react-native';
-import { Divider, Headline, Paragraph, Title } from 'react-native-paper';
+import { Divider, Headline, Paragraph } from 'react-native-paper';
 import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
