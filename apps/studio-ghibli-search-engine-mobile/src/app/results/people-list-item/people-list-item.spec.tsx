@@ -3,33 +3,29 @@ import {
   initialRootState,
   RootState,
 } from '@studio-ghibli-search-engine/store';
-import { render } from '@testing-library/react';
+import { render } from '@testing-library/react-native';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 
 import PeopleListItem from './people-list-item';
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  Link: ({ children }: any) => <div>{children}</div>,
-}));
-
 describe('PeopleListItem', () => {
   const mockStore = configureStore<RootState>([]);
 
-  let store: MockStoreEnhanced;
+  let store: MockStoreEnhanced<RootState>;
 
   beforeEach(() => {
-    store = mockStore(initialRootState as any);
+    store = mockStore(initialRootState);
     store.dispatch = jest.fn();
   });
+
   it('should render successfully', () => {
-    const { baseElement } = render(
+    const { container } = render(
       <Provider store={store}>
-        <PeopleListItem people={mockPeopleEntity} getFilmTitle={jest.fn()} />
+        <PeopleListItem people={mockPeopleEntity} />
       </Provider>
     );
-    expect(baseElement).toBeTruthy();
+    expect(container).toBeTruthy();
   });
 });

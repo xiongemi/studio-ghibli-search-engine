@@ -44,7 +44,7 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
             style={{ height: 200, width: '100%', resizeMode: 'contain' }}
             source={{ uri: film.movieBanner }}
           />
-          <Headline>{film.title}</Headline>
+          <Headline testID='title'>{film.title}</Headline>
           <Subheading>
             {film.originalTitle} / {film.originalTitleRomanised}
           </Subheading>
