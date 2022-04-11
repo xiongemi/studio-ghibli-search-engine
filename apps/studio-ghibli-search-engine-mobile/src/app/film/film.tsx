@@ -37,14 +37,14 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
   }, [id, getFilm]);
 
   return film ? (
-    <SafeAreaView>
+    <SafeAreaView testID="film-page">
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={[styles.pa3]}>
           <Image
             style={{ height: 200, width: '100%', resizeMode: 'contain' }}
             source={{ uri: film.movieBanner }}
           />
-          <Headline testID='title'>{film.title}</Headline>
+          <Headline testID="title">{film.title}</Headline>
           <Subheading>
             {film.originalTitle} / {film.originalTitleRomanised}
           </Subheading>

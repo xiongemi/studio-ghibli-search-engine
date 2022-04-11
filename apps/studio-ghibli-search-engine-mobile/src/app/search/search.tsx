@@ -38,12 +38,14 @@ export function Search({ textToSearchInState }: SearchProps) {
           <Headline testID="heading">Studio Ghibli Search Engine</Headline>
         </View>
         <TextInput
+          testID="search-input"
           style={[styles.mt3]}
           label="Any film or character"
           value={text}
           onChangeText={(text) => setText(text)}
         />
         <Button
+          testID="search-button"
           style={[styles.mt3, styles.mh3]}
           icon="magnify"
           mode="contained"
@@ -53,6 +55,7 @@ export function Search({ textToSearchInState }: SearchProps) {
           Search
         </Button>
         <Button
+          testID="all-films-button"
           style={[styles.mt3, styles.mh3]}
           icon="filmstrip-box-multiple"
           mode="outlined"

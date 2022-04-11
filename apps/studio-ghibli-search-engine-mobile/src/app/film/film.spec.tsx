@@ -55,6 +55,7 @@ describe('Film', () => {
         <Film />
       </Provider>
     );
+    expect(store.dispatch).toHaveBeenCalled();
     expect(getByTestId('title')).toHaveTextContent(mockFilmEntity.title);
   });
 });

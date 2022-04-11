@@ -34,7 +34,7 @@ export function Results({
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="results-page">
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Searchbar
           placeholder="Any film or character"
@@ -45,7 +45,7 @@ export function Results({
           <Loading />
         ) : (results && results.length) || !textToSearchInState ? (
           results.map((result) => (
-            <View key={result.id}>
+            <View key={result.id} testID="result-list-item">
               <ResultListItem listItem={result} />
               <Divider />
             </View>

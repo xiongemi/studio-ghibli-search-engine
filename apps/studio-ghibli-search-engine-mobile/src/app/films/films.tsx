@@ -35,7 +35,7 @@ export function Films({ films, fetchFilms }: FilmsProps) {
   }, [films, text]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView testID="all-films-page">
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Searchbar value={text} onChangeText={setText} />
         {filteredFilms ? (
