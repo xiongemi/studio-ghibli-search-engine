@@ -16,6 +16,11 @@ Mobile:
 
 API: https://ghibliapi.herokuapp.com/
 
+## Apps
+- studio-ghibli-search-engine-mobile: React Native app
+- studio-ghibli-search-engine-mobile-web: React Native Web app
+- studio-ghibli-search-engine-web: React app
+
 ## Commands
 
 - run web app: `npm run start`
