@@ -5,9 +5,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/studio-ghibli-search-engine-web",
@@ -20,9 +18,7 @@
           "apps/studio-ghibli-search-engine-web/src/favicon.ico",
           "apps/studio-ghibli-search-engine-web/src/assets"
         ],
-        "styles": [
-          "apps/studio-ghibli-search-engine-web/src/styles.css"
-        ],
+        "styles": ["apps/studio-ghibli-search-engine-web/src/styles.css"],
         "scripts": [],
         "webpackConfig": "apps/studio-ghibli-search-engine-web/webpack.js"
       },
@@ -40,6 +36,12 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false
+        },
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         }
       }
     },
@@ -53,14 +55,16 @@
         "production": {
           "buildTarget": "studio-ghibli-search-engine-web:build:production",
           "hmr": false
+        },
+        "development": {
+          "buildTarget": "studio-ghibli-search-engine-web:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "apps/studio-ghibli-search-engine-web/**/*.{ts,tsx,js,jsx}"
@@ -69,11 +73,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/studio-ghibli-search-engine-web"
-      ],
+      "outputs": ["coverage/apps/studio-ghibli-search-engine-web"],
       "options": {
-        "jestConfig": "apps/studio-ghibli-search-engine-web/jest.config.js",
+        "jestConfig": "apps/studio-ghibli-search-engine-web/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -21,7 +21,7 @@
         "coverage/libs/models"
       ],
       "options": {
-        "jestConfig": "libs/models/jest.config.js",
+        "jestConfig": "libs/models/jest.config.ts",
         "passWithNoTests": true
       }
     }

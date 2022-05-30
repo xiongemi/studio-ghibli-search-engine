@@ -7,7 +7,7 @@ import {
   SEARCH_FEATURE_KEY,
   transformEntityStateToPersist,
 } from '@studio-ghibli-search-engine/store';
-// TODO replace BrowserRouter with ConnectedRouter once connected-react-router support react-router v6
+// TODO replace BrowserRouter with ConnectedRouter history={history} Router once typing is fixed https://github.com/supasate/connected-react-router/issues/565
 // import { ConnectedRouter } from 'connected-react-router';
 import { createHashHistory, History } from 'history';
 import { Provider } from 'react-redux';
@@ -42,8 +42,8 @@ export function App() {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={<Loading />} persistor={persistor}>
-        <BrowserRouter>
+      <BrowserRouter>
+        <PersistGate loading={<Loading />} persistor={persistor}>
           <AppBar>
             <Toolbar>
               <Link
@@ -71,26 +71,19 @@ export function App() {
           <Toolbar />
           <Container maxWidth="lg">
             <Routes>
-              <Route path={AppRoutes.search}>
-                <Search />
-              </Route>
-              <Route path={AppRoutes.results}>
-                <Results />
-              </Route>
-              <Route path={AppRoutes.film + '/:id'}>
-                <Film />
-              </Route>
-              <Route path={AppRoutes.people + '/:id'}>
-                <People />
-              </Route>
-              <Route path={AppRoutes.films}>
-                <Films />
-              </Route>
-              <Route path="/" element={<Navigate to={AppRoutes.search} />} />
+              <Route path={AppRoutes.search} element={<Search />} />
+              <Route path={AppRoutes.results} element={<Results />} />
+              <Route path={AppRoutes.film + '/:id'} element={<Film />} />
+              <Route path={AppRoutes.people + '/:id'} element={<People />} />
+              <Route path={AppRoutes.films} element={<Films />} />
+              <Route
+                index
+                element={<Navigate replace to={AppRoutes.search} />}
+              />
             </Routes>
           </Container>
-        </BrowserRouter>
-      </PersistGate>
+        </PersistGate>
+      </BrowserRouter>
     </Provider>
   );
 }
