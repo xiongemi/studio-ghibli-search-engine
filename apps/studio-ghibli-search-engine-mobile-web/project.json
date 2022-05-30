@@ -1,13 +1,10 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/studio-ghibli-search-engine-mobile-web/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/studio-ghibli-search-engine-mobile-web",
@@ -40,6 +37,12 @@
           "namedChunks": false,
           "extractLicenses": true,
           "vendorChunk": false
+        },
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
         }
       }
     },
@@ -53,14 +56,16 @@
         "production": {
           "buildTarget": "studio-ghibli-search-engine-mobile-web:build:production",
           "hmr": false
+        },
+        "development": {
+          "buildTarget": "studio-ghibli-search-engine-mobile-web:build:development"
         }
-      }
+      },
+      "defaultConfiguration": "development"
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "apps/studio-ghibli-search-engine-mobile-web/**/*.{ts,tsx,js,jsx}"
@@ -69,17 +74,13 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/studio-ghibli-search-engine-mobile-web"
-      ],
+      "outputs": ["coverage/apps/studio-ghibli-search-engine-mobile-web"],
       "options": {
-        "jestConfig": "apps/studio-ghibli-search-engine-mobile-web/jest.config.js",
+        "jestConfig": "apps/studio-ghibli-search-engine-mobile-web/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
   "tags": [],
-  "implicitDependencies": [
-    "studio-ghibli-search-engine-mobile"
-  ]
+  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
 }

@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'studio-ghibli-search-engine-mobile-web',
   preset: '../../jest.preset.js',
   transform: {
