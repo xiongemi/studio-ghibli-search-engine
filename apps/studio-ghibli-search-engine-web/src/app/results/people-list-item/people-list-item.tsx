@@ -13,7 +13,7 @@ import { mapStateToProps, PeopleListItemProps } from './people-list-item.props';
 function PeopleListItem({ people, getFilmTitle }: PeopleListItemProps) {
   const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>(
     (props, ref) => (
-      <Link to={`${AppRoutes.people}/${people.id}`} {...props} innerRef={ref} />
+      <Link to={`${AppRoutes.people}/${people.id}`} {...props} ref={ref} />
     )
   );
 

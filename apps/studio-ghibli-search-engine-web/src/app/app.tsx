@@ -7,10 +7,17 @@ import {
   SEARCH_FEATURE_KEY,
   transformEntityStateToPersist,
 } from '@studio-ghibli-search-engine/store';
-import { ConnectedRouter } from 'connected-react-router';
+// TODO replace BrowserRouter with ConnectedRouter once connected-react-router support react-router v6
+// import { ConnectedRouter } from 'connected-react-router';
 import { createHashHistory, History } from 'history';
 import { Provider } from 'react-redux';
-import { Link as RouterLink, Redirect, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Link as RouterLink,
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import storage from 'redux-persist/lib/storage';
 
@@ -36,7 +43,7 @@ export function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
           <AppBar>
             <Toolbar>
               <Link
@@ -63,7 +70,7 @@ export function App() {
           </AppBar>
           <Toolbar />
           <Container maxWidth="lg">
-            <Switch>
+            <Routes>
               <Route path={AppRoutes.search}>
                 <Search />
               </Route>
@@ -79,10 +86,10 @@ export function App() {
               <Route path={AppRoutes.films}>
                 <Films />
               </Route>
-              <Redirect from="/" to={AppRoutes.search} />
-            </Switch>
+              <Route path="/" element={<Navigate to={AppRoutes.search} />} />
+            </Routes>
           </Container>
-        </ConnectedRouter>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   );

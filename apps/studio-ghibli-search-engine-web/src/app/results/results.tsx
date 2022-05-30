@@ -1,7 +1,7 @@
 import { List, Divider, Alert } from '@mui/material';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import { AppRoutes } from '../app-routes.enum';
 import Loading from '../shared/loading/loading';
@@ -19,7 +19,7 @@ export function Results({
   results,
   isSearchLoading,
 }: ResultsProps) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const params = new URLSearchParams(useLocation().search);
   const searchParam = params.get('search');
@@ -31,7 +31,7 @@ export function Results({
   }, [searchText, searchParam]);
 
   const submitSearchForm = (text: string) => {
-    history.push(`${AppRoutes.results}?search=${text}`);
+    navigate(`${AppRoutes.results}?search=${text}`);
   };
 
   return isSearchLoading ? (

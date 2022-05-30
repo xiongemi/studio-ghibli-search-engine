@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   Link: ({ children }: any) => <div>{children}</div>,
   useLocation: jest.fn().mockReturnValue({ search: '?search=text' }),
-  useHistory: jest.fn().mockReturnValue({ push: jest.fn() }),
+  useNavigate: jest.fn().mockReturnValue(jest.fn()),
 }));
 
 describe('Results', () => {

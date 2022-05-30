@@ -18,7 +18,9 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
   }, [fetchFilms]);
 
   useEffect(() => {
-    setFilm(getFilm(id));
+    if (typeof id === 'string') {
+      setFilm(getFilm(id));
+    }
   }, [id, getFilm]);
 
   return film ? (

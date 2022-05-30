@@ -18,11 +18,7 @@ import { AppRoutes } from '../../app-routes.enum';
 export function FilmCard(film: FilmEntity) {
   const MyButton = React.forwardRef<HTMLAnchorElement, Partial<LinkProps>>(
     (props, ref) => (
-      <RouterLink
-        to={`${AppRoutes.film}/${film.id}`}
-        {...props}
-        innerRef={ref}
-      />
+      <RouterLink to={`${AppRoutes.film}/${film.id}`} {...props} ref={ref} />
     )
   );
 

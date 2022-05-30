@@ -28,7 +28,9 @@ export function People({
   }, [fetchPeople]);
 
   useEffect(() => {
-    setPerson(getPerson(id));
+    if (typeof id === 'string') {
+      setPerson(getPerson(id));
+    }
   }, [id, getPerson, loadingStatus]);
 
   useEffect(() => {
