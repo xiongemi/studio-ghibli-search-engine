@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'studio-ghibli-search-engine-mobile',
   preset: 'react-native',
   testRunner: 'jest-jasmine2',
