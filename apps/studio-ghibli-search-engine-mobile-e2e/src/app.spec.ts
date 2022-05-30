@@ -1,6 +1,6 @@
 import { device, element, by, expect } from 'detox';
 
-describe('StudioGhibliSearchEngineApp', () => {
+describe('StudioGhibliSearchEngineMobile', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });

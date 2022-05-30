@@ -1,11 +1,13 @@
 {
-  "root": "apps/studio-ghibli-search-engine-mobile-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/studio-ghibli-search-engine-mobile-web/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/studio-ghibli-search-engine-mobile-web",
@@ -56,7 +58,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "apps/studio-ghibli-search-engine-mobile-web/**/*.{ts,tsx,js,jsx}"
@@ -65,7 +69,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/studio-ghibli-search-engine-mobile-web"],
+      "outputs": [
+        "coverage/apps/studio-ghibli-search-engine-mobile-web"
+      ],
       "options": {
         "jestConfig": "apps/studio-ghibli-search-engine-mobile-web/jest.config.js",
         "passWithNoTests": true
@@ -73,5 +79,7 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
+  "implicitDependencies": [
+    "studio-ghibli-search-engine-mobile"
+  ]
 }

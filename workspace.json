@@ -9,5 +9,6 @@
     "studio-ghibli-search-engine-mobile-web": "apps/studio-ghibli-search-engine-mobile-web",
     "studio-ghibli-search-engine-web": "apps/studio-ghibli-search-engine-web",
     "studio-ghibli-search-engine-web-e2e": "apps/studio-ghibli-search-engine-web-e2e"
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

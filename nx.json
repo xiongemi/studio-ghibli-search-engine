@@ -52,5 +52,6 @@
       }
     }
   },
-  "defaultProject": "studio-ghibli-search-engine-web"
+  "defaultProject": "studio-ghibli-search-engine-web",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

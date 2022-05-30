@@ -30,6 +30,10 @@ module.exports = (async () => {
       debug: false,
       // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx'
       extensions: [],
+      // the project root to start the metro server
+      projectRoot: __dirname,
+      // Specify folders to watch, in addition to Nx defaults (workspace libraries and node_modules)
+      watchFolders: []
     }
   );
 })();

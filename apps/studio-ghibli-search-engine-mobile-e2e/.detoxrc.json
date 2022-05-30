@@ -4,13 +4,13 @@
   "apps": {
     "ios.debug": {
       "type": "ios.app",
-      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineApp.xcworkspace -scheme StudioGhibliSearchEngineApp -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
-      "binaryPath": "../studio-ghibli-search-engine-mobile/ios/build/Build/Products/Debug-iphonesimulator/StudioGhibliSearchEngineApp.app"
+      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineMobile.xcworkspace -scheme StudioGhibliSearchEngineMobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../studio-ghibli-search-engine-mobile/ios/build/Build/Products/Debug-iphonesimulator/StudioGhibliSearchEngineMobile.app"
     },
     "ios.release": {
       "type": "ios.app",
-      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineApp.xcworkspace -scheme StudioGhibliSearchEngineApp -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
-      "binaryPath": "../studio-ghibli-search-engine-mobile/ios/build/Build/Products/Release-iphonesimulator/StudioGhibliSearchEngineApp.app"
+      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineMobile.xcworkspace -scheme StudioGhibliSearchEngineMobile -configuration Release -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "binaryPath": "../studio-ghibli-search-engine-mobile/ios/build/Build/Products/Release-iphonesimulator/StudioGhibliSearchEngineMobile.app"
     },
     "android.debug": {
       "type": "android.apk",
