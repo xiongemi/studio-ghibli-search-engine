@@ -35,6 +35,7 @@
     "@storybook/addon-ondevice-backgrounds": "*",
     "@storybook/addon-ondevice-controls": "*",
     "@storybook/addon-ondevice-notes": "*",
-    "history": "*"
+    "history": "*",
+    "metro-babel-register": "*"
   }
 }

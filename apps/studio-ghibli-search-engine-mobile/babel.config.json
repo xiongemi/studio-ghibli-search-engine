@@ -1,5 +1,6 @@
 {
-  "presets": ["module:metro-react-native-babel-preset"],
+  "presets": ["module:metro-react-native-babel-preset", "flow"],
+  "plugins": ["transform-flow-strip-types"],
   "env": {
     "production": {
       "plugins": ["react-native-paper/babel"]
