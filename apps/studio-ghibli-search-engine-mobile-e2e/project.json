@@ -19,7 +19,6 @@
       "options": {
         "detoxConfiguration": "ios.sim.debug",
         "buildTarget": "studio-ghibli-search-engine-mobile-e2e:build-ios",
-        "devServerTarget": "studio-ghibli-search-engine-mobile:serve",
         "reuse": true
       },
       "configurations": {
