@@ -15,14 +15,10 @@ export function Search() {
     <Grid container>
       <Grid item md={2}></Grid>
       <Grid item xs={12} md={8}>
-        <Box sx={{ textAlign: 'center', marginTop: 5 }}>
-          <img
-            src={Logo}
-            alt="Studio Ghibli Logo"
-            style={{ maxWidth: '100%' }}
-          />
+        <div className="text-center mt-8">
+          <img src={Logo} alt="Studio Ghibli Logo" className="w-full" />
           <SearchForm onSubmit={submitSearchForm}></SearchForm>
-        </Box>
+        </div>
       </Grid>
     </Grid>
   );

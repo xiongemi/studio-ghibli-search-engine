@@ -26,7 +26,7 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
   return film ? (
     <Grid container spacing={3}>
       <Grid item xs={12} md={4}>
-        <img src={film.image} alt={film.title} style={{ maxWidth: '100%' }} />
+        <img src={film.image} alt={film.title} className="w-100" />
       </Grid>
       <Grid item xs={12} md={8}>
         <Typography variant="h5" component="h1">

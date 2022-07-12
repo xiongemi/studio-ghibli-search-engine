@@ -57,7 +57,7 @@ export function People({
             <img
               src={films[0].movieBanner}
               alt={films[0].title}
-              style={{ maxWidth: '100%' }}
+              className="w-100"
             />
           )}
         </Grid>
@@ -79,7 +79,7 @@ export function People({
       {films && (
         <>
           <Divider sx={{ my: 3 }}>Films</Divider>
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Box className="flex flex-col justify-center items-center md:flex-row md:justify-evenly">
             {films?.map((film) => (
               <FilmCard key={film.id} {...film} />
             ))}
