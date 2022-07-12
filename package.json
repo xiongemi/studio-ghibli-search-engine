@@ -60,7 +60,7 @@
     "@nrwl/web": "14.4.2",
     "@nrwl/workspace": "14.4.2",
     "@react-native-async-storage/async-storage": "1.17.7",
-    "@react-native-community/cli": "8.0.2",
+    "@react-native-community/cli": "8.0.3",
     "@react-native-community/cli-platform-android": "8.0.2",
     "@react-native-community/cli-platform-ios": "8.0.2",
     "@react-native-masked-view/masked-view": "^0.2.6",
@@ -107,12 +107,12 @@
     "jest-circus": "27.2.3",
     "jest-react-native": "18.0.0",
     "lodash": "^4.17.21",
-    "metro": "0.71.2",
-    "metro-babel-register": "0.71.1",
-    "metro-minify-uglify": "^0.71.1",
-    "metro-react-native-babel-preset": "0.71.1",
-    "metro-resolver": "0.71.1",
-    "metro-transform-worker": "^0.71.1",
+    "metro": "0.71.3",
+    "metro-babel-register": "0.71.3",
+    "metro-minify-uglify": "^0.71.3",
+    "metro-react-native-babel-preset": "0.71.3",
+    "metro-resolver": "^0.71.3",
+    "metro-transform-worker": "^0.71.3",
     "nx": "14.4.2",
     "prettier": "2.7.1",
     "react-native-config": "1.4.6",
@@ -134,4 +134,3 @@
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
-
