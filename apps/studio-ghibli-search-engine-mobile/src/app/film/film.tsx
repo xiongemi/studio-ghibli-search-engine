@@ -11,7 +11,6 @@ import {
   Subheading,
   Title,
 } from 'react-native-paper';
-import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
 import Loading from '../shared/loading/loading';
@@ -39,7 +38,7 @@ export function Film({ getFilm, fetchFilms }: FilmProps) {
   return film ? (
     <SafeAreaView testID="film-page">
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={[styles.pa3]}>
+        <View style={{ padding: 20 }}>
           <Image
             style={{ height: 200, width: '100%', resizeMode: 'contain' }}
             source={{ uri: film.movieBanner }}

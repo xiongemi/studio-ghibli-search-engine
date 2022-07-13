@@ -3,7 +3,6 @@ import { FilmEntity, PeopleEntity } from '@studio-ghibli-search-engine/models';
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView, Image, View } from 'react-native';
 import { Divider, Headline, Paragraph } from 'react-native-paper';
-import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
 import FilmCard from '../shared/film-card/film-card';
@@ -54,7 +53,7 @@ export function People({
   return person ? (
     <SafeAreaView>
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={[styles.pa3]}>
+        <View style={{ padding: 10 }}>
           {films && films?.length && (
             <Image
               accessible={true}
@@ -69,7 +68,7 @@ export function People({
           <Paragraph>Hair Color: {person?.hairColor || 'Unknown'}</Paragraph>
           {films && (
             <>
-              <Divider style={[styles.mv3]} />
+              <Divider style={{ marginVertical: 10 }} />
               {films?.map((film) => (
                 <FilmCard key={film.id} {...film} />
               ))}

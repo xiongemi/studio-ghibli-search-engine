@@ -3,7 +3,6 @@ import { FilmEntity } from '@studio-ghibli-search-engine/models';
 import { getEnv } from '@studio-ghibli-search-engine/services';
 import React from 'react';
 import { Button, Card, Paragraph, Title } from 'react-native-paper';
-import { styles } from 'react-native-style-tachyons';
 import truncate from 'truncate';
 
 import { AppRoutes } from '../app-routes.enum';
@@ -20,8 +19,8 @@ export function FilmCard(film: FilmEntity) {
   const openNetflix = useLink(getEnv('NX_NETFLIX_STREAMING_URL'), 'Netflix');
 
   return (
-    <Card style={[styles.mb2]}>
-      <Card.Cover source={{ uri: film.image }}/>
+    <Card style={{ marginBottom: 10 }}>
+      <Card.Cover source={{ uri: film.image }} />
       <Card.Content>
         <Title>{film.title}</Title>
         <Paragraph> {truncate(film.description, 200)}</Paragraph>

@@ -20,7 +20,6 @@
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
-    "react-native-style-tachyons": "*",
     "react-native-svg": "*",
     "react-native-vector-icons": "*",
     "react-redux": "*",
@@ -36,6 +35,7 @@
     "@storybook/addon-ondevice-controls": "*",
     "@storybook/addon-ondevice-notes": "*",
     "history": "*",
-    "metro-babel-register": "*"
+    "metro-babel-register": "*",
+    "twrnc": "*"
   }
 }

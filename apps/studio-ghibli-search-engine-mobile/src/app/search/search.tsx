@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { View, ScrollView, Image, SafeAreaView } from 'react-native';
 import { TextInput, Button, Headline } from 'react-native-paper';
-import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
 import { AppRoutes } from '../shared/app-routes.enum';
@@ -34,19 +33,19 @@ export function Search({ textToSearchInState }: SearchProps) {
           style={{ height: 200, width: '100%', resizeMode: 'contain' }}
           source={require('../../assets/logo.png')}
         />
-        <View style={[styles.mt3, styles.flex, styles.aic]}>
+        <View style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
           <Headline testID="heading">Studio Ghibli Search Engine</Headline>
         </View>
         <TextInput
           testID="search-input"
-          style={[styles.mt3]}
+          style={{ marginTop: 10 }}
           label="Any film or character"
           value={text}
           onChangeText={(text) => setText(text)}
         />
         <Button
           testID="search-button"
-          style={[styles.mt3, styles.mh3]}
+          style={{ marginTop: 10, marginHorizontal: 10 }}
           icon="magnify"
           mode="contained"
           onPress={() => submitSearchForm()}
@@ -56,7 +55,7 @@ export function Search({ textToSearchInState }: SearchProps) {
         </Button>
         <Button
           testID="all-films-button"
-          style={[styles.mt3, styles.mh3]}
+          style={{ marginTop: 10, marginHorizontal: 10 }}
           icon="filmstrip-box-multiple"
           mode="outlined"
           onPress={() => showAllFilms()}

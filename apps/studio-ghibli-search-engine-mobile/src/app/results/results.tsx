@@ -2,7 +2,6 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ScrollView, SafeAreaView, View } from 'react-native';
 import { Divider, Searchbar, Subheading } from 'react-native-paper';
-import { styles } from 'react-native-style-tachyons';
 import { connect } from 'react-redux';
 
 import Loading from '../shared/loading/loading';
@@ -51,7 +50,7 @@ export function Results({
             </View>
           ))
         ) : (
-          <View style={[styles.pa3, styles.tc]}>
+          <View style={{ textAlign: 'center', padding: 10 }}>
             <Subheading>Nothing found!</Subheading>
           </View>
         )}
