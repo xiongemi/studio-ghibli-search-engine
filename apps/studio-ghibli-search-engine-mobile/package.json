@@ -35,7 +35,6 @@
     "@storybook/addon-ondevice-controls": "*",
     "@storybook/addon-ondevice-notes": "*",
     "history": "*",
-    "metro-babel-register": "*",
-    "twrnc": "*"
+    "metro-babel-register": "*"
   }
 }

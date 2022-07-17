@@ -4,7 +4,7 @@ import ResultList from './result-list';
 
 describe('ResultList', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ResultList />);
+    const { baseElement } = render(<ResultList results={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });
