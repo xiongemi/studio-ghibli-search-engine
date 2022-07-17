@@ -49,16 +49,16 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@nrwl/cypress": "14.4.2",
-    "@nrwl/detox": "14.4.2",
-    "@nrwl/eslint-plugin-nx": "14.4.2",
-    "@nrwl/jest": "14.4.2",
-    "@nrwl/linter": "14.4.2",
-    "@nrwl/react": "14.4.2",
-    "@nrwl/react-native": "14.4.2",
-    "@nrwl/storybook": "14.4.2",
-    "@nrwl/web": "14.4.2",
-    "@nrwl/workspace": "14.4.2",
+    "@nrwl/cypress": "14.4.3",
+    "@nrwl/detox": "14.4.3",
+    "@nrwl/eslint-plugin-nx": "14.4.3",
+    "@nrwl/jest": "14.4.3",
+    "@nrwl/linter": "14.4.3",
+    "@nrwl/react": "14.4.3",
+    "@nrwl/react-native": "14.4.3",
+    "@nrwl/storybook": "14.4.3",
+    "@nrwl/web": "14.4.3",
+    "@nrwl/workspace": "14.4.3",
     "@react-native-async-storage/async-storage": "1.17.7",
     "@react-native-community/cli": "8.0.3",
     "@react-native-community/cli-platform-android": "8.0.2",
@@ -114,7 +114,7 @@
     "metro-react-native-babel-preset": "0.71.3",
     "metro-resolver": "^0.71.3",
     "metro-transform-worker": "^0.71.3",
-    "nx": "14.4.2",
+    "nx": "14.4.3",
     "postcss": "^8.4.14",
     "prettier": "2.7.1",
     "react-native-config": "1.4.6",
@@ -136,3 +136,4 @@
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
+
