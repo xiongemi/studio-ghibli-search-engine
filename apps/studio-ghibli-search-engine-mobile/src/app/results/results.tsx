@@ -50,7 +50,7 @@ export function Results({
             </View>
           ))
         ) : (
-          <View style={{ textAlign: 'center', padding: 10 }}>
+          <View style={{ padding: 10 }}>
             <Subheading>Nothing found!</Subheading>
           </View>
         )}
