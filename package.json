@@ -49,16 +49,16 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@nrwl/cypress": "14.4.3",
-    "@nrwl/detox": "14.4.3",
-    "@nrwl/eslint-plugin-nx": "14.4.3",
-    "@nrwl/jest": "14.4.3",
-    "@nrwl/linter": "14.4.3",
-    "@nrwl/react": "14.4.3",
-    "@nrwl/react-native": "14.4.3",
-    "@nrwl/storybook": "14.4.3",
-    "@nrwl/web": "14.4.3",
-    "@nrwl/workspace": "14.4.3",
+    "@nrwl/cypress": "14.5.1",
+    "@nrwl/detox": "14.5.1",
+    "@nrwl/eslint-plugin-nx": "14.5.1",
+    "@nrwl/jest": "14.5.1",
+    "@nrwl/linter": "14.5.1",
+    "@nrwl/react": "14.5.1",
+    "@nrwl/react-native": "14.5.1",
+    "@nrwl/storybook": "14.5.1",
+    "@nrwl/web": "14.5.1",
+    "@nrwl/workspace": "14.5.1",
     "@react-native-async-storage/async-storage": "1.17.7",
     "@react-native-community/cli": "8.0.4",
     "@react-native-community/cli-platform-android": "8.0.4",
@@ -100,7 +100,7 @@
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.0",
+    "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react": "7.30.1",
     "eslint-plugin-react-hooks": "4.6.0",
     "gh-pages": "^3.2.3",
@@ -115,7 +115,7 @@
     "metro-react-native-babel-preset": "0.71.3",
     "metro-resolver": "^0.71.3",
     "metro-transform-worker": "^0.71.3",
-    "nx": "14.4.3",
+    "nx": "14.5.1",
     "postcss": "^8.4.14",
     "prettier": "2.7.1",
     "react-native-config": "1.4.6",
@@ -137,3 +137,4 @@
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
+
