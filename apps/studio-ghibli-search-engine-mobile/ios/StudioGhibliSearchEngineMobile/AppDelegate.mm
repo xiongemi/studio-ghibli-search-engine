@@ -70,19 +70,22 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   // Switch this bool to turn on and off the concurrent root
   return true;
 }
+
 - (NSDictionary *)prepareInitialProps
 {
   NSMutableDictionary *initProps = [NSMutableDictionary new];
+
 #ifdef RCT_NEW_ARCH_ENABLED
   initProps[kRNConcurrentRoot] = @([self concurrentRootEnabled]);
 #endif
+
   return initProps;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
-  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"src/main.tsx"];
+  return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"src/main"];
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif

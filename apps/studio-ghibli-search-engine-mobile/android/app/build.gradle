@@ -2,7 +2,6 @@ apply plugin: "com.android.application"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
-import org.apache.tools.ant.taskdefs.condition.Os
 
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
@@ -147,6 +146,7 @@ android {
         
         testBuildType System.getProperty('testBuildType', 'debug')  // This will later be used to control the test apk build type
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        missingDimensionStrategy 'detox', 'full'
         
 
         if (isNewArchitectureEnabled()) {
@@ -166,10 +166,6 @@ android {
                     // Make sure this target name is the same you specify inside the
                     // src/main/jni/Android.mk file for the `LOCAL_MODULE` variable.
                     targets "studioghiblisearchenginemobile_appmodules"
-                    // Fix for windows limit on number of character in file paths and in command lines
-                    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                        arguments "NDK_APP_SHORT_COMMANDS=true"
-                    }
                 }
             }
             if (!enableSeparateBuildPerCPUArchitecture) {
@@ -246,8 +242,7 @@ android {
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
-            // Typical pro-guard definitions
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             
             // Detox-specific additions to pro-guard
             proguardFile "${rootProject.projectDir}/../node_modules/detox/android/detox/proguard-rules-app.pro"
@@ -304,7 +299,7 @@ dependencies {
     }
 
     
-    androidTestImplementation('com.wix:detox:+')
+    androidTestImplementation(project(path: ":detox"))
     
 }
 
@@ -340,5 +335,3 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
-
-apply from: "../../../../node_modules/react-native-vector-icons/fonts.gradle"
