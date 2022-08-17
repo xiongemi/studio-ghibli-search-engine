@@ -10,8 +10,5 @@ export default {
   moduleNameMapper: {
     '.svg': '@nrwl/react-native/plugins/jest/svg-mock',
   },
-  transform: {
-    '^.+\\.[tj]sx?$': require.resolve('react-native/jest/preprocessor.js'),
-  },
   coverageDirectory: '../../coverage/libs/store',
 };

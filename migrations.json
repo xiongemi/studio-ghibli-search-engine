@@ -1,20 +1,20 @@
 {
   "migrations": [
     {
+      "version": "14.5.5-beta.0",
       "cli": "nx",
-      "version": "14.4.4",
-      "description": "Adds @typescript-eslint/utils as a dev dep",
-      "factory": "./src/migrations/update-14-4-4/experimental-to-utils-deps",
-      "package": "@nrwl/linter",
-      "name": "experimental-to-utils-deps"
+      "description": "Exclude jest.config.ts from tsconfig where missing.",
+      "factory": "./src/migrations/update-14-0-0/update-jest-config-ext",
+      "package": "@nrwl/jest",
+      "name": "exclude-jest-config-from-ts-config"
     },
     {
+      "version": "14.5.5-beta.0",
       "cli": "nx",
-      "version": "14.4.4",
-      "description": "Switch from  @typescript-eslint/experimental-utils to @typescript-eslint/utils in all rules and rules.spec files",
-      "factory": "./src/migrations/update-14-4-4/experimental-to-utils-rules",
-      "package": "@nrwl/linter",
-      "name": "experimental-to-utils-rules"
+      "description": "Change include field from string to array for sync-deps target",
+      "factory": "./src/migrations/update-14-5-5/add-exclude-sync-deps",
+      "package": "@nrwl/react-native",
+      "name": "add-exclude-sync-deps-14-5-5"
     }
   ]
 }

@@ -6,7 +6,8 @@
         "runtime": "automatic",
         "useBuiltIns": "usage"
       }
-    ]
+    ],
+    "module:metro-react-native-babel-preset"
   ],
   "plugins": []
 }
