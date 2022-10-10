@@ -10,7 +10,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "command": "nx start studio-ghibli-search-engine-mobile"
       }
