@@ -1,20 +1,20 @@
 {
   "migrations": [
     {
-      "version": "14.5.5-beta.0",
+      "version": "14.5.8-beta.0",
       "cli": "nx",
-      "description": "Exclude jest.config.ts from tsconfig where missing.",
-      "factory": "./src/migrations/update-14-0-0/update-jest-config-ext",
-      "package": "@nrwl/jest",
-      "name": "exclude-jest-config-from-ts-config"
+      "description": "Change searchDir field from string to array for storybook target",
+      "factory": "./src/migrations/update-14-5-8/change-searchDir-storybook",
+      "package": "@nrwl/react-native",
+      "name": "change-searchDir-storybook-14-5-8"
     },
     {
-      "version": "14.5.5-beta.0",
+      "version": "14.6.0-beta.0",
       "cli": "nx",
-      "description": "Change include field from string to array for sync-deps target",
-      "factory": "./src/migrations/update-14-5-5/add-exclude-sync-deps",
+      "description": "Remove transform in jest.config",
+      "factory": "./src/migrations/update-14-6-0/remove-jest-transform",
       "package": "@nrwl/react-native",
-      "name": "add-exclude-sync-deps-14-5-5"
+      "name": "rename-jest-preprocessor-14-6-0"
     }
   ]
 }
