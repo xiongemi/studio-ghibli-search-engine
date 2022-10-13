@@ -35,6 +35,8 @@
     "@storybook/addon-ondevice-controls": "*",
     "@storybook/addon-ondevice-notes": "*",
     "history": "*",
-    "metro-babel-register": "*"
+    "metro-babel-register": "*",
+    "redux-thunk": "*",
+    "metro-config": "*"
   }
 }
