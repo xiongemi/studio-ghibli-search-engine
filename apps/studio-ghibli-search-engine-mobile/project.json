@@ -21,7 +21,7 @@
     },
     "bundle-ios": {
       "executor": "@nrwl/react-native:bundle",
-      "outputs": ["apps/studio-ghibli-search-engine-mobile/build"],
+      "outputs": ["{projectRoot}/build"],
       "options": {
         "entryFile": "src/main.tsx",
         "platform": "ios",
@@ -35,8 +35,8 @@
     "build-android": {
       "executor": "@nrwl/react-native:build-android",
       "outputs": [
-        "apps/studio-ghibli-search-engine-mobile/android/app/build/outputs/bundle",
-        "apps/studio-ghibli-search-engine-mobile/android/app/build/outputs/apk"
+        "{projectRoot}/android/app/build/outputs/bundle",
+        "{projectRoot}/android/app/build/outputs/apk"
       ],
       "options": {}
     },
@@ -67,7 +67,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/studio-ghibli-search-engine-mobile"],
+      "outputs": [
+        "{workspaceRoot}/coverage/apps/studio-ghibli-search-engine-mobile"
+      ],
       "options": {
         "jestConfig": "apps/studio-ghibli-search-engine-mobile/jest.config.ts",
         "passWithNoTests": true
