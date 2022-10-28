@@ -101,3 +101,6 @@ apps/studio-ghibli-search-engine-mobile-e2e/artifacts
 node_modules/
 
 coverage/
+## Nested node_modules
+
+node_modules/
