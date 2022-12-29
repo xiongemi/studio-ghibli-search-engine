@@ -26,5 +26,6 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-web"]
+  "implicitDependencies": ["studio-ghibli-search-engine-web"],
+  "name": "studio-ghibli-search-engine-web-e2e"
 }

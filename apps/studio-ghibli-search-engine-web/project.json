@@ -82,5 +82,6 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "name": "studio-ghibli-search-engine-web"
 }

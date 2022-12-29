@@ -85,5 +85,6 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "name": "studio-ghibli-search-engine-mobile"
 }

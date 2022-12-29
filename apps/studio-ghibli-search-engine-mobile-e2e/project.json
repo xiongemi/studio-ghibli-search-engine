@@ -64,5 +64,6 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
+  "implicitDependencies": ["studio-ghibli-search-engine-mobile"],
+  "name": "studio-ghibli-search-engine-mobile-e2e"
 }
