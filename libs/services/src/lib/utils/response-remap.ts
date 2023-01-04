@@ -4,7 +4,7 @@ import mapKeys from 'lodash/mapKeys';
 
 /**
  * This function remaps response object's keys to all camel case
- * @param response 
+ * @param response
  * @returns response remapped with camel case key
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

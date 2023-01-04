@@ -17,6 +17,7 @@ Mobile:
 API: https://ghibliapi.herokuapp.com/
 
 ## Apps
+
 - studio-ghibli-search-engine-mobile: React Native app
 - studio-ghibli-search-engine-mobile-web: React Native Web app
 - studio-ghibli-search-engine-web: React app
@@ -31,7 +32,6 @@ API: https://ghibliapi.herokuapp.com/
 - run bundle analyzer: `npm run bundle-analyze`
 - run e2e test on ios: `nx test-ios studio-ghibli-search-engine-mobile-e2e`
 - run e2e test on android: `nx test-android studio-ghibli-search-engine-mobile-e2e`
-
 
 ## Adding capabilities to your workspace
 

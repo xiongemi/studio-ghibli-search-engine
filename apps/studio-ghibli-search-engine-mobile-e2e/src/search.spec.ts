@@ -23,8 +23,6 @@ describe('Search', () => {
       .toBeVisible()
       .withTimeout(pageTimeout);
     await expect(element(by.id('title'))).toBeVisible();
-    await expect(element(by.id('title'))).toHaveText(
-      'My Neighbor Totoro'
-    );
+    await expect(element(by.id('title'))).toHaveText('My Neighbor Totoro');
   });
 });

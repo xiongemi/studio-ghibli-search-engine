@@ -6,7 +6,9 @@ describe('StudioGhibliSearchEngineMobile', () => {
   });
 
   it('should display welcome message', async () => {
-    await waitFor(element(by.id('search-page'))).toBeVisible().withTimeout(5000);
+    await waitFor(element(by.id('search-page')))
+      .toBeVisible()
+      .withTimeout(5000);
     await expect(element(by.id('heading'))).toBeVisible();
     await expect(element(by.id('heading'))).toHaveText(
       'Studio Ghibli Search Engine'

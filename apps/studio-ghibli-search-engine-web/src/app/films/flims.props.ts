@@ -1,5 +1,9 @@
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import { filmsActions, filmsSelectors, RootState } from '@studio-ghibli-search-engine/store';
+import {
+  filmsActions,
+  filmsSelectors,
+  RootState,
+} from '@studio-ghibli-search-engine/store';
 
 const mapStateToProps = (state: RootState) => {
   return {

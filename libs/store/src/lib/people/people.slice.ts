@@ -109,5 +109,5 @@ export const getPeopleLoadingStatus = createSelector(
 export const peopleSelectors = {
   selectAllPeople,
   selectPersonById,
-  getPeopleLoadingStatus
+  getPeopleLoadingStatus,
 };

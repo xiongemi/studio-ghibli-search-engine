@@ -20,7 +20,7 @@ function getCustomWebpackConfig(webpackConfig) {
               runtime: 'automatic',
             },
           ],
-        ]
+        ],
       },
     },
   });

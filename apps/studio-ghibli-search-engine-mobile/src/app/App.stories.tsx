@@ -5,5 +5,4 @@ import { App } from './App';
 
 const props = {};
 
-storiesOf('App', module)
-  .add('Primary', () => <App {...props} />);
+storiesOf('App', module).add('Primary', () => <App {...props} />);
