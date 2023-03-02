@@ -15,6 +15,10 @@
         "command": "nx start studio-ghibli-search-engine-mobile"
       }
     },
+    "build-ios": {
+      "executor": "@nrwl/react-native:build-ios",
+      "options": {}
+    },
     "run-ios": {
       "executor": "@nrwl/react-native:run-ios",
       "options": {}

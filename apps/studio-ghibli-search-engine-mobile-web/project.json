@@ -1,4 +1,5 @@
 {
+  "name": "studio-ghibli-search-engine-mobile-web",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/studio-ghibli-search-engine-mobile-web/src",
   "projectType": "application",
@@ -22,7 +23,8 @@
           "apps/studio-ghibli-search-engine-mobile-web/src/styles.css"
         ],
         "scripts": [],
-        "webpackConfig": "apps/studio-ghibli-search-engine-mobile-web/webpack.config"
+        "webpackConfig": "apps/studio-ghibli-search-engine-mobile-web/webpack.config",
+        "isolatedConfig": true
       },
       "configurations": {
         "production": {
@@ -85,6 +87,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-mobile"],
-  "name": "studio-ghibli-search-engine-mobile-web"
+  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
 }
