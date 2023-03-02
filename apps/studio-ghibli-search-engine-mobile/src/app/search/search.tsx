@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import Logo from '@studio-ghibli-search-engine/assets/src/logo.png';
 import React, { useEffect } from 'react';
 import { View, ScrollView, Image, SafeAreaView } from 'react-native';
 import { TextInput, Button, Headline } from 'react-native-paper';
@@ -31,7 +32,7 @@ export function Search({ textToSearchInState }: SearchProps) {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <Image
           style={{ height: 200, width: '100%', resizeMode: 'contain' }}
-          source={require('../../assets/logo.png')}
+          source={require('@studio-ghibli-search-engine/assets/src/logo.png')}
         />
         <View style={{ marginTop: 10, display: 'flex', alignItems: 'center' }}>
           <Headline testID="heading">Studio Ghibli Search Engine</Headline>

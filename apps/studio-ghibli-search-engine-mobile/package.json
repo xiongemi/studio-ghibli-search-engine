@@ -20,7 +20,6 @@
     "react-native-safe-area-context": "*",
     "react-native-screens": "*",
     "react-native-svg": "*",
-    "react-native-vector-icons": "*",
     "react-redux": "*",
     "react-router-dom": "*",
     "redux-logger": "*",

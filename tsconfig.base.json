@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@studio-ghibli-search-engine/assets": ["libs/assets/src/index.ts"],
+      "@studio-ghibli-search-engine/assets/*": ["libs/assets/*"],
       "@studio-ghibli-search-engine/models": ["libs/models/src/index.ts"],
       "@studio-ghibli-search-engine/services": ["libs/services/src/index.ts"],
       "@studio-ghibli-search-engine/store": ["libs/store/src/index.ts"]
