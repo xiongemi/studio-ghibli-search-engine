@@ -1,4 +1,5 @@
 {
+  "name": "studio-ghibli-search-engine-mobile-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/studio-ghibli-search-engine-mobile-e2e/src",
   "projectType": "application",
@@ -54,7 +55,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
@@ -64,6 +65,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["studio-ghibli-search-engine-mobile"],
-  "name": "studio-ghibli-search-engine-mobile-e2e"
+  "implicitDependencies": ["studio-ghibli-search-engine-mobile"]
 }

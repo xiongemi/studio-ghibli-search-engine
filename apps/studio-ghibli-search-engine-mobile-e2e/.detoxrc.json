@@ -1,10 +1,17 @@
 {
-  "testRunner": "jest",
-  "runnerConfig": "jest.config.json",
+  "testRunner": {
+    "args": {
+      "$0": "jest",
+      "config": "./jest.config.json"
+    },
+    "jest": {
+      "setupTimeout": 120000
+    }
+  },
   "apps": {
     "ios.debug": {
       "type": "ios.app",
-      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineMobile.xcworkspace -scheme StudioGhibliSearchEngineMobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12' -derivedDataPath ./build -quiet",
+      "build": "cd ../studio-ghibli-search-engine-mobile/ios && xcodebuild -workspace StudioGhibliSearchEngineMobile.xcworkspace -scheme StudioGhibliSearchEngineMobile -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14 Pro' -derivedDataPath ./build -quiet",
       "binaryPath": "../studio-ghibli-search-engine-mobile/ios/build/Build/Products/Debug-iphonesimulator/StudioGhibliSearchEngineMobile.app"
     },
     "ios.release": {
@@ -27,7 +34,7 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 13"
+        "type": "iPhone 14 Pro"
       }
     },
     "emulator": {

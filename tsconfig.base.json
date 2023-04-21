@@ -19,7 +19,10 @@
       "@studio-ghibli-search-engine/assets/*": ["libs/assets/*"],
       "@studio-ghibli-search-engine/models": ["libs/models/src/index.ts"],
       "@studio-ghibli-search-engine/services": ["libs/services/src/index.ts"],
-      "@studio-ghibli-search-engine/store": ["libs/store/src/index.ts"]
+      "@studio-ghibli-search-engine/store": ["libs/store/src/index.ts"],
+      "studio-ghibli-search-engine/workspace-plugin": [
+        "tools/workspace-plugin/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

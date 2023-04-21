@@ -1,4 +1,5 @@
 {
+  "name": "studio-ghibli-search-engine-mobile",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/studio-ghibli-search-engine-mobile/src",
   "projectType": "application",
@@ -21,7 +22,9 @@
     },
     "run-ios": {
       "executor": "@nrwl/react-native:run-ios",
-      "options": {}
+      "options": {
+        "simulator": "iPhone 14 Pro"
+      }
     },
     "bundle-ios": {
       "executor": "@nrwl/react-native:bundle",
@@ -61,7 +64,7 @@
       "options": {}
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
@@ -89,6 +92,5 @@
       }
     }
   },
-  "tags": [],
-  "name": "studio-ghibli-search-engine-mobile"
+  "tags": []
 }
